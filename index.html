@@ -3,165 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Gaming Platforms</title>
+    <title>Elite Gaming Hub | 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         :root {
-            --bg-color: #0F0C29;
-            --winna-color: #00D2FF;
-            --duel-color: #8E14D9;
-            --text-light: #E0E0E0;
+            --bg: #050505;
+            --winna: #00d2ff;
+            --duel: #8e14d9;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
         }
 
         body {
-            background: radial-gradient(circle at top, #1B1464 0%, #0F0C29 100%);
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 210, 255, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(142, 20, 217, 0.05) 0%, transparent 40%);
             color: white;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 0;
-            padding: 40px 20px;
             min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
         }
 
         h1 {
+            font-weight: 900;
             font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        h1 span { color: var(--winna-color); }
-
-        .subtitle {
-            color: #A1A1A1;
-            margin-bottom: 40px;
-            text-align: center;
-            max-width: 600px;
-            line-height: 1.6;
+            letter-spacing: -1px;
+            margin: 0;
+            background: linear-gradient(to right, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .container {
             width: 100%;
-            max-width: 500px;
+            max-width: 450px;
             display: flex;
             flex-direction: column;
-            gap: 25px; /* Зазор между карточками */
+            gap: 25px;
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 24px;
-            padding: 35px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid transparent;
+            position: relative;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 30px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .card:hover { 
-            transform: translateY(-5px); 
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        .card.winna { 
-            border-color: var(--winna-color); 
-            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.1); 
-        }
-        
-        .card.duel { 
-            border-color: var(--duel-color); 
-            box-shadow: 0 10px 30px rgba(142, 20, 217, 0.1); 
+        .card h2 {
+            font-size: 2rem;
+            margin: 0 0 20px 0;
+            font-weight: 900;
         }
 
-        .card h2 { margin-top: 0; font-size: 2rem; margin-bottom: 20px; }
-        .winna h2 { color: var(--winna-color); }
-        .duel h2 { color: var(--duel-color); }
+        .winna h2 { color: var(--winna); text-shadow: 0 0 20px rgba(0, 210, 255, 0.3); }
+        .duel h2 { color: var(--duel); text-shadow: 0 0 20px rgba(142, 20, 217, 0.3); }
 
         ul {
             list-style: none;
             padding: 0;
             margin: 0 0 30px 0;
-            display: inline-block;
-            text-align: left;
         }
 
         li {
-            margin-bottom: 15px;
-            color: var(--text-light);
-            font-size: 1.05rem;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 12px;
+            color: #ccc;
         }
+
+        li i { font-size: 0.8rem; }
+        .winna i { color: var(--winna); }
+        .duel i { color: var(--duel); }
 
         .btn {
             display: block;
-            padding: 18px;
-            border-radius: 14px;
+            width: 100%;
+            padding: 18px 0;
+            border-radius: 16px;
             text-decoration: none;
-            font-weight: 800;
-            font-size: 1.1rem;
+            text-align: center;
+            font-weight: 700;
             text-transform: uppercase;
-            transition: filter 0.3s, transform 0.2s;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            box-sizing: border-box;
         }
 
-        .winna .btn { 
-            background: var(--winna-color); 
-            color: #0F0C29; /* Темный текст для контраста */
-        }
-        
-        .duel .btn { 
-            background: var(--duel-color); 
-            color: white; 
-        }
+        .winna .btn { background: var(--winna); color: #000; box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3); }
+        .duel .btn { background: var(--duel); color: #fff; box-shadow: 0 4px 15px rgba(142, 20, 217, 0.3); }
 
-        .btn:hover { 
-            filter: brightness(1.1);
-            transform: scale(1.02);
-        }
+        .btn:hover { filter: brightness(1.2); transform: scale(1.02); }
 
         footer {
             margin-top: auto;
-            padding-top: 60px;
+            padding-top: 50px;
+            font-size: 0.7rem;
             color: #444;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
     </style>
 </head>
 <body>
 
-    <h1>The Only <span>Juice</span> You Need</h1>
-    <p class="subtitle">Verified gaming platforms with high RTP and instant rewards.</p>
+    <div class="header">
+        <h1>PREMIUM HUB</h1>
+    </div>
 
     <div class="container">
         <div class="card winna">
             <h2>Winna</h2>
             <ul>
-                <li>✅ <b>VIP Transfer</b> — Keep your status!</li>
-                <li>✅ <b>Weekly, Monthly</b> & Pre-Monthly Rewards</li>
-                <li>✅ <b>Unlimited</b> Reloads & Loseback</li>
-                <li>✅ <b>No KYC</b> Required</li>
+                <li><i class="fas fa-check-circle"></i> <b>VIP Transfer</b> — Keep status</li>
+                <li><i class="fas fa-check-circle"></i> <b>Weekly & Monthly</b> Rewards</li>
+                <li><i class="fas fa-check-circle"></i> <b>Unlimited</b> Reloads</li>
+                <li><i class="fas fa-check-circle"></i> <b>No KYC</b> Required</li>
             </ul>
-            <a href="ТВОЯ_ССЫЛКА_WINNA" class="btn">Visit Winna</a>
+            <a href="ТВОЯ_ССЫЛКА_WINNA" class="btn">Play Winna</a>
         </div>
 
         <div class="card duel">
             <h2>Duel</h2>
             <ul>
-                <li>✅ <b>100% RTP</b> Originals (No House Edge)</li>
-                <li>✅ <b>Instant 2%</b> Rakeback on Every Bet</li>
-                <li>✅ <b>Instant</b> Multi-Crypto Cashouts</li>
-                <li>✅ <b>High Limits</b> for serious players</li>
-                <li>✅ <b>No KYC</b> Required</li>
+                <li><i class="fas fa-bolt"></i> <b>100% RTP</b> Originals</li>
+                <li><i class="fas fa-bolt"></i> <b>Instant 2%</b> Rakeback</li>
+                <li><i class="fas fa-bolt"></i> <b>Instant</b> Crypto Cashouts</li>
+                <li><i class="fas fa-bolt"></i> <b>High Limits</b> for Pros</li>
+                <li><i class="fas fa-bolt"></i> <b>No KYC</b> Required</li>
             </ul>
-            <a href="ТВОЯ_ССЫЛКА_DUEL" class="btn">Join the Resistance</a>
+            <a href="ТВОЯ_ССЫЛКА_DUEL" class="btn">Join Duel</a>
         </div>
     </div>
 
-    <footer>
-        &copy; 2026 | ANALYTICS & REVIEWS
-    </footer>
+    <footer>&copy; 2026 High Stakes Analytics</footer>
 
 </body>
 </html>
