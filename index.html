@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Gaming Platforms</title>
+    <style>
+        :root {
+            --bg-color: #0F0C29;
+            --winna-color: #00D2FF;
+            --duel-color: #8E14D9;
+            --text-light: #E0E0E0;
+        }
+
+        body {
+            background: radial-gradient(circle at top, #1B1464 0%, #0F0C29 100%);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h1 span { color: var(--winna-color); }
+
+        .subtitle {
+            color: #A1A1A1;
+            margin-bottom: 40px;
+            text-align: center;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px; /* Зазор между карточками */
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
+            padding: 35px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .card:hover { 
+            transform: translateY(-5px); 
+        }
+
+        .card.winna { 
+            border-color: var(--winna-color); 
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.1); 
+        }
+        
+        .card.duel { 
+            border-color: var(--duel-color); 
+            box-shadow: 0 10px 30px rgba(142, 20, 217, 0.1); 
+        }
+
+        .card h2 { margin-top: 0; font-size: 2rem; margin-bottom: 20px; }
+        .winna h2 { color: var(--winna-color); }
+        .duel h2 { color: var(--duel-color); }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+            display: inline-block;
+            text-align: left;
+        }
+
+        li {
+            margin-bottom: 15px;
+            color: var(--text-light);
+            font-size: 1.05rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .btn {
+            display: block;
+            padding: 18px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            transition: filter 0.3s, transform 0.2s;
+        }
+
+        .winna .btn { 
+            background: var(--winna-color); 
+            color: #0F0C29; /* Темный текст для контраста */
+        }
+        
+        .duel .btn { 
+            background: var(--duel-color); 
+            color: white; 
+        }
+
+        .btn:hover { 
+            filter: brightness(1.1);
+            transform: scale(1.02);
+        }
+
+        footer {
+            margin-top: auto;
+            padding-top: 60px;
+            color: #444;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>The Only <span>Juice</span> You Need</h1>
+    <p class="subtitle">Verified gaming platforms with high RTP and instant rewards.</p>
+
+    <div class="container">
+        <div class="card winna">
+            <h2>Winna</h2>
+            <ul>
+                <li>✅ <b>VIP Transfer</b> — Keep your status!</li>
+                <li>✅ <b>Weekly, Monthly</b> & Pre-Monthly Rewards</li>
+                <li>✅ <b>Unlimited</b> Reloads & Loseback</li>
+                <li>✅ <b>No KYC</b> Required</li>
+            </ul>
+            <a href="ТВОЯ_ССЫЛКА_WINNA" class="btn">Visit Winna</a>
+        </div>
+
+        <div class="card duel">
+            <h2>Duel</h2>
+            <ul>
+                <li>✅ <b>100% RTP</b> Originals (No House Edge)</li>
+                <li>✅ <b>Instant 2%</b> Rakeback on Every Bet</li>
+                <li>✅ <b>Instant</b> Multi-Crypto Cashouts</li>
+                <li>✅ <b>High Limits</b> for serious players</li>
+                <li>✅ <b>No KYC</b> Required</li>
+            </ul>
+            <a href="ТВОЯ_ССЫЛКА_DUEL" class="btn">Join the Resistance</a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 | ANALYTICS & REVIEWS
+    </footer>
+
+</body>
+</html>
