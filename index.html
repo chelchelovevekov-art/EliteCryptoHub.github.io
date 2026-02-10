@@ -6,7 +6,6 @@
     <title>Elite Gaming Hub | 100RTP</title>
     
     <link rel="icon" href="https://fav.farm/💎">
-    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -34,19 +33,42 @@
             padding: 40px 20px;
         }
 
+        /* Новый блок для логотипов вверху */
         .header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .top-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px; /* Расстояние между логотипами */
+            margin-bottom: 30px;
+        }
+
+        .main-logo {
+            height: 80px; /* Крупный размер */
+            width: auto;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.15));
+            transition: transform 0.3s ease;
+        }
+
+        .main-logo:hover {
+            transform: scale(1.1);
         }
 
         h1 {
             font-weight: 900;
-            font-size: 2.5rem;
-            letter-spacing: -1px;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
             margin: 0;
-            background: linear-gradient(to right, #fff, #888);
+            background: linear-gradient(to right, #fff, #555);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
         }
 
         .container {
@@ -58,45 +80,31 @@
         }
 
         .card {
-            position: relative;
             background: var(--glass);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid var(--border);
             border-radius: 28px;
             padding: 35px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s ease;
             text-align: center;
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        /* Стиль для логотипов платформ */
-        .card-logo {
-            height: 45px;
-            width: auto;
-            margin-bottom: 15px;
-            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover .card-logo {
-            transform: scale(1.1) rotate(2deg);
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
 
         .card h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin: 0 0 20px 0;
             font-weight: 900;
+            text-transform: uppercase;
         }
 
-        .winna h2 { color: var(--winna); text-shadow: 0 0 20px rgba(0, 210, 255, 0.3); }
-        .duel h2 { color: var(--duel); text-shadow: 0 0 20px rgba(142, 20, 217, 0.3); }
+        .winna h2 { color: var(--winna); }
+        .duel h2 { color: var(--duel); }
 
         ul {
             list-style: none;
@@ -112,10 +120,9 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            color: #ccc;
+            color: #bbb;
         }
 
-        li i { font-size: 0.8rem; }
         .winna i { color: var(--winna); }
         .duel i { color: var(--duel); }
 
@@ -126,24 +133,21 @@
             border-radius: 16px;
             text-decoration: none;
             text-align: center;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1px;
             transition: all 0.3s;
-            box-sizing: border-box;
         }
 
-        .winna .btn { background: var(--winna); color: #000; box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3); }
-        .duel .btn { background: var(--duel); color: #fff; box-shadow: 0 4px 15px rgba(142, 20, 217, 0.3); }
+        .winna .btn { background: var(--winna); color: #000; }
+        .duel .btn { background: var(--duel); color: #fff; }
 
-        .btn:hover { filter: brightness(1.2); transform: scale(1.02); }
+        .btn:hover { filter: brightness(1.2); }
 
         footer {
             margin-top: auto;
-            padding-top: 50px;
+            padding-top: 60px;
             font-size: 0.7rem;
-            color: #444;
-            text-transform: uppercase;
+            color: #333;
             letter-spacing: 2px;
         }
     </style>
@@ -151,39 +155,40 @@
 <body>
 
     <div class="header">
-        <h1>100RTP HUB</h1>
+        <div class="top-logos">
+            <img src="image-Photoroom (28).png
+" alt="Winna" class="main-logo">
+            <img src="image-Photoroom (30).png
+" alt="Duel" class="main-logo">
+        </div>
+        <h1>Verified Platforms</h1>
     </div>
 
     <div class="container">
         <div class="card winna">
-            <img src="image-Photoroom (28).png
-" alt="" class="card-logo">
             <h2>Winna</h2>
             <ul>
                 <li><i class="fas fa-check-circle"></i> <b>VIP Transfer</b> — Keep your status!</li>
                 <li><i class="fas fa-check-circle"></i> <b>Weekly & Monthly</b> Rewards</li>
-                <li><i class="fas fa-check-circle"></i> <b>Unlimited</b> Reloads & Loseback</li>
-                <li><i class="fas fa-check-circle"></i> <b>No KYC</b> Required</li>
+                <li><i class="fas fa-check-circle"></i> <b>Unlimited</b> Reloads</li>
+                <li><i class="fas fa-user-secret"></i> <b>No KYC</b> Required</li>
             </ul>
             <a href="ТВОЯ_ССЫЛКА_WINNA" class="btn">Play Winna</a>
         </div>
 
         <div class="card duel">
-            <img src="image-Photoroom (30).png
-" alt="" class="card-logo">
             <h2>Duel</h2>
             <ul>
-                <li><i class="fas fa-bolt"></i> <b>100% RTP</b> Originals (No House Edge)</li>
-                <li><i class="fas fa-bolt"></i> <b>Instant 2%</b> Rakeback on Every Bet</li>
-                <li><i class="fas fa-bolt"></i> <b>Instant</b> Crypto Cashouts</li>
-                <li><i class="fas fa-bolt"></i> <b>High Limits</b> for Pros</li>
-                <li><i class="fas fa-bolt"></i> <b>No KYC</b> Required</li>
+                <li><i class="fas fa-bolt"></i> <b>100% RTP</b> Originals</li>
+                <li><i class="fas fa-coins"></i> <b>Instant 2%</b> Rakeback</li>
+                <li><i class="fas fa-wallet"></i> <b>Instant</b> Crypto Cashouts</li>
+                <li><i class="fas fa-user-secret"></i> <b>No KYC</b> Required</li>
             </ul>
-            <a href="ТВОЯ_ССЫЛКА_DUEL" class="btn">Join Duel</a>
+            <a href="https://duel.com/r/topgwin" class="btn">Join Duel</a>
         </div>
     </div>
 
-    <footer>&copy; 2026 | 100RTPHUB.TOP | Verified Platforms</footer>
+    <footer>100RTPHUB.TOP | 2026</footer>
 
 </body>
 </html>
