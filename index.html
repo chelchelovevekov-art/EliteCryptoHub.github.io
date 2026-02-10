@@ -122,21 +122,21 @@
         .winna h2 { color: var(--winna); text-shadow: 0 0 25px rgba(0, 210, 255, 0.4); }
         .duel h2 { color: var(--duel); text-shadow: 0 0 25px rgba(142, 20, 217, 0.4); }
 
-        ul {
+ul {
             list-style: none;
             padding: 0;
             margin: 0 0 35px 0;
-            text-align: left;
-            display: inline-block;
+            text-align: left; /* Ровняем по левому краю */
+            width: 100%;      /* Растягиваем на всю ширину карточки */
         }
 
         li {
-            font-size: 1rem;
-            margin-bottom: 15px;
+            font-size: 1.15rem; /* Сделали текст крупнее (было 1rem) */
+            margin-bottom: 18px; /* Добавили чуть больше воздуха между пунктами */
             display: flex;
             align-items: center;
             gap: 15px;
-            color: #ddd;
+            color: #eee; /* Сделали текст чуть ярче для читаемости */
         }
 
         li i { font-size: 0.9rem; }
@@ -209,7 +209,7 @@
                 <li><i class="fas fa-redo"></i> <b>Unlimited</b> Reloads</li>
                 <li><i class="fas fa-mask"></i> <b>No KYC</b> Required</li>
             </ul>
-            <a href="ТВОЯ_ССЫЛКА_WINNA" target="_blank" rel="noopener noreferrer" class="btn">Go to Winna</a>
+            <a href="ТВОЯ_ССЫЛКА_WINNA" target="_blank" rel="noopener noreferrer" class="btn">PLAY ON WINNA</a>
         </div>
 
         <div class="card duel">
@@ -220,7 +220,7 @@
                 <li><i class="fas fa-wallet"></i> <b>Instant</b> Crypto Cashouts</li>
                 <li><i class="fas fa-mask"></i> <b>No KYC</b> Required</li>
             </ul>
-            <a href="https://duel.com/r/topgwin" target="_blank" rel="noopener noreferrer" class="btn">Join Duel</a>
+            <a href="https://duel.com/r/topgwin" target="_blank" rel="noopener noreferrer" class="btn">PLAY ON DUEL</a>
         </div>
     </div>
 
