@@ -80,12 +80,18 @@
         .subtitle {
             font-size: 1.1rem;
             color: #888;
-            max-width: 600px;
+            width: 100%; /* Занимает всю ширину */
+            max-width: none; /* Убираем ограничение */
             margin: 0 auto;
             line-height: 1.6;
             font-weight: 400;
+            white-space: nowrap; /* Запрещаем перенос строки силой */
         }
 
+        /* На мобилках разрешим перенос, чтобы текст не улетел за экран */
+        @media (max-width: 600px) {
+            .subtitle { white-space: normal; }
+        }
         /* 3. Те самые "вчерашние" Glassmorphism карточки */
         .container {
             width: 100%;
