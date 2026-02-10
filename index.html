@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Gaming Hub | 100RTP</title>
+    <title>Elite Crypto Platforms | 100RTP</title>
     
     <link rel="icon" href="https://fav.farm/💎">
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -21,8 +22,8 @@
         body {
             background-color: var(--bg);
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(0, 210, 255, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(142, 20, 217, 0.05) 0%, transparent 40%);
+                radial-gradient(circle at 10% 20%, rgba(0, 210, 255, 0.07) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(142, 20, 217, 0.07) 0%, transparent 40%);
             color: white;
             font-family: 'Montserrat', sans-serif;
             margin: 0;
@@ -30,47 +31,61 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 60px 20px;
         }
 
-        /* Новый блок для логотипов вверху */
+        /* 1. Настройка огромных логотипов */
         .header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 70px;
             width: 100%;
-            max-width: 500px;
         }
 
         .top-logos {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 40px; /* Расстояние между логотипами */
-            margin-bottom: 30px;
+            gap: 80px; /* Большое расстояние между лого */
+            margin-bottom: 40px;
+            flex-wrap: wrap;
         }
 
         .main-logo {
-            height: 80px; /* Крупный размер */
-            width: auto;
-            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.15));
-            transition: transform 0.3s ease;
+            /* Увеличили в 3 раза (было ~60-80, теперь 200) */
+            height: 200px; 
+            width: 200px;
+            object-fit: contain; /* Чтобы логотипы были одинакового размера и не искажались */
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+            transition: all 0.4s ease;
         }
 
         .main-logo:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.2));
         }
 
+        /* 2. Заголовки */
         h1 {
             font-weight: 900;
-            font-size: 2.2rem;
-            letter-spacing: 2px;
-            margin: 0;
-            background: linear-gradient(to right, #fff, #555);
+            font-size: 3rem;
+            letter-spacing: -1px;
+            margin: 0 0 15px 0;
+            background: linear-gradient(to right, #fff, #888);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-transform: uppercase;
         }
 
+        .subtitle {
+            font-size: 1.1rem;
+            color: #888;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* 3. Те самые "вчерашние" Glassmorphism карточки */
         .container {
             width: 100%;
             max-width: 450px;
@@ -80,75 +95,92 @@
         }
 
         .card {
+            position: relative;
             background: var(--glass);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid var(--border);
             border-radius: 28px;
             padding: 35px;
-            transition: all 0.4s ease;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-align: center;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
         }
 
         .card h2 {
-            font-size: 1.8rem;
-            margin: 0 0 20px 0;
+            font-size: 2.2rem;
+            margin: 0 0 25px 0;
             font-weight: 900;
-            text-transform: uppercase;
         }
 
-        .winna h2 { color: var(--winna); }
-        .duel h2 { color: var(--duel); }
+        .winna h2 { color: var(--winna); text-shadow: 0 0 25px rgba(0, 210, 255, 0.4); }
+        .duel h2 { color: var(--duel); text-shadow: 0 0 25px rgba(142, 20, 217, 0.4); }
 
         ul {
             list-style: none;
             padding: 0;
-            margin: 0 0 30px 0;
+            margin: 0 0 35px 0;
             text-align: left;
             display: inline-block;
         }
 
         li {
-            font-size: 0.95rem;
-            margin-bottom: 12px;
+            font-size: 1rem;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            color: #bbb;
+            gap: 15px;
+            color: #ddd;
         }
 
+        li i { font-size: 0.9rem; }
         .winna i { color: var(--winna); }
         .duel i { color: var(--duel); }
 
+        /* Кнопки */
         .btn {
             display: block;
             width: 100%;
-            padding: 18px 0;
-            border-radius: 16px;
+            padding: 20px 0;
+            border-radius: 18px;
             text-decoration: none;
             text-align: center;
             font-weight: 800;
             text-transform: uppercase;
-            transition: all 0.3s;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
         }
 
-        .winna .btn { background: var(--winna); color: #000; }
-        .duel .btn { background: var(--duel); color: #fff; }
+        .winna .btn { background: var(--winna); color: #000; box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2); }
+        .duel .btn { background: var(--duel); color: #fff; box-shadow: 0 10px 20px rgba(142, 20, 217, 0.2); }
 
-        .btn:hover { filter: brightness(1.2); }
+        .btn:hover { 
+            filter: brightness(1.2); 
+            transform: scale(1.02);
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.1);
+        }
 
         footer {
             margin-top: auto;
-            padding-top: 60px;
-            font-size: 0.7rem;
-            color: #333;
-            letter-spacing: 2px;
+            padding: 60px 0;
+            font-size: 0.75rem;
+            color: #444;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* Адаптивность для мобилок */
+        @media (max-width: 600px) {
+            .top-logos { gap: 30px; }
+            .main-logo { height: 120px; width: 120px; }
+            h1 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -156,24 +188,26 @@
 
     <div class="header">
         <div class="top-logos">
-            <img src="image-Photoroom (28).png
-" alt="Winna" class="main-logo">
-            <img src="image-Photoroom (30).png
-" alt="Duel" class="main-logo">
+            <img src="winna.png" alt="Winna" class="main-logo">
+            <img src="duel.png" alt="Duel" class="main-logo">
         </div>
-        <h1>Verified Platforms</h1>
+        <h1>Elite Crypto Platforms</h1>
+        <p class="subtitle">
+            No KYC. Instant Payouts. <br>
+            Play on the most trusted platforms of 2026.
+        </p>
     </div>
 
     <div class="container">
         <div class="card winna">
             <h2>Winna</h2>
             <ul>
-                <li><i class="fas fa-check-circle"></i> <b>VIP Transfer</b> — Keep your status!</li>
-                <li><i class="fas fa-check-circle"></i> <b>Weekly & Monthly</b> Rewards</li>
-                <li><i class="fas fa-check-circle"></i> <b>Unlimited</b> Reloads</li>
-                <li><i class="fas fa-user-secret"></i> <b>No KYC</b> Required</li>
+                <li><i class="fas fa-check-double"></i> <b>VIP Transfer</b> — Keep your status</li>
+                <li><i class="fas fa-gift"></i> <b>Weekly & Monthly</b> Rewards</li>
+                <li><i class="fas fa-redo"></i> <b>Unlimited</b> Reloads</li>
+                <li><i class="fas fa-mask"></i> <b>No KYC</b> Required</li>
             </ul>
-            <a href="ТВОЯ_ССЫЛКА_WINNA" class="btn">Play Winna</a>
+            <a href="ТВОЯ_ССЫЛКА_WINNA" target="_blank" rel="noopener noreferrer" class="btn">Go to Winna</a>
         </div>
 
         <div class="card duel">
@@ -182,13 +216,13 @@
                 <li><i class="fas fa-bolt"></i> <b>100% RTP</b> Originals</li>
                 <li><i class="fas fa-coins"></i> <b>Instant 2%</b> Rakeback</li>
                 <li><i class="fas fa-wallet"></i> <b>Instant</b> Crypto Cashouts</li>
-                <li><i class="fas fa-user-secret"></i> <b>No KYC</b> Required</li>
+                <li><i class="fas fa-mask"></i> <b>No KYC</b> Required</li>
             </ul>
-            <a href="https://duel.com/r/topgwin" class="btn">Join Duel</a>
+            <a href="ТВОЯ_ССЫЛКА_DUEL" target="_blank" rel="noopener noreferrer" class="btn">Join Duel</a>
         </div>
     </div>
 
-    <footer>100RTPHUB.TOP | 2026</footer>
+    <footer>100RTPHUB.TOP — High Stakes Authority</footer>
 
 </body>
 </html>
