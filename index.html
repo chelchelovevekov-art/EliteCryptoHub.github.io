@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Crypto Platforms | 100RTP</title>
+    <title>100RTP | The Transparent Platform</title>
     
-    <link rel="icon" href="100rtpflav.png
-" type="image/png">
+    <link rel="icon" href="100rtpflav.png" type="image/png">
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -14,7 +13,6 @@
     <style>
         :root {
             --bg: #050505;
-            --winna: #00d2ff;
             --duel: #8e14d9;
             --glass: rgba(255, 255, 255, 0.03);
             --border: rgba(255, 255, 255, 0.1);
@@ -22,9 +20,7 @@
 
         body {
             background-color: var(--bg);
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(0, 210, 255, 0.07) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(142, 20, 217, 0.07) 0%, transparent 40%);
+            background-image: radial-gradient(circle at 50% 40%, rgba(142, 20, 217, 0.15) 0%, transparent 60%);
             color: white;
             font-family: 'Montserrat', sans-serif;
             margin: 0;
@@ -35,10 +31,9 @@
             padding: 60px 20px;
         }
 
-        /* 1. Настройка огромных логотипов */
         .header {
             text-align: center;
-            margin-bottom: 250px;
+            margin-bottom: 50px;
             width: 100%;
         }
 
@@ -46,60 +41,50 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 80px; /* Большое расстояние между лого */
-            margin-bottom: 40px;
-            flex-wrap: wrap;
+            margin-bottom: 30px;
         }
 
         .main-logo {
-            /* Увеличили в 3 раза (было ~60-80, теперь 200) */
-            height: 200px; 
-            width: 200px;
-            object-fit: contain; /* Чтобы логотипы были одинакового размера и не искажались */
-            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+            height: 220px; 
+            width: 220px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 25px rgba(142, 20, 217, 0.3));
             transition: all 0.4s ease;
         }
 
         .main-logo:hover {
             transform: scale(1.05);
-            filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.2));
+            filter: drop-shadow(0 0 40px rgba(142, 20, 217, 0.5));
         }
 
-        /* 2. Заголовки */
         h1 {
             font-weight: 900;
-            font-size: 3rem;
+            font-size: 3.5rem;
             letter-spacing: -1px;
             margin: 0 0 15px 0;
             background: linear-gradient(to right, #fff, #888);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-transform: uppercase;
+            text-align: center;
         }
-.subtitle {
-            font-size: 1.1rem;
-            color: #888;
-            width: 100%;
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #aaa;
+            max-width: 600px;
             margin: 0 auto;
             line-height: 1.6;
             font-weight: 400;
             text-align: center;
-            white-space: nowrap; /* Это заставит текст стоять в одну строчку */
-
         }
 
-        /* На мобилках разрешим перенос, чтобы текст не улетел за экран */
-        @media (max-width: 600px) {
-            .subtitle { white-space: normal; }
-        }
-        /* 3. Те самые "вчерашние" Glassmorphism карточки */
         .container {
             width: 100%;
-            max-width: 450px;
+            max-width: 500px;
             display: flex;
             flex-direction: column;
-            gap: 45px;
-            margin-top: 100px !important;
+            margin-top: 40px !important;
         }
 
         .card {
@@ -109,7 +94,7 @@
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid var(--border);
             border-radius: 28px;
-            padding: 35px;
+            padding: 40px;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-align: center;
@@ -117,123 +102,108 @@
 
         .card:hover {
             transform: translateY(-10px);
-            border-color: rgba(255, 255, 255, 0.3);
+            border-color: rgba(142, 20, 217, 0.4);
             box-shadow: 0 25px 50px rgba(0,0,0,0.6);
         }
 
         .card h2 {
-            font-size: 2.2rem;
-            margin: 0 0 25px 0;
+            font-size: 2.5rem;
+            margin: 0 0 30px 0;
             font-weight: 900;
+            color: var(--duel);
+            text-shadow: 0 0 25px rgba(142, 20, 217, 0.4);
         }
 
-        .winna h2 { color: var(--winna); text-shadow: 0 0 25px rgba(0, 210, 255, 0.4); }
-        .duel h2 { color: var(--duel); text-shadow: 0 0 25px rgba(142, 20, 217, 0.4); }
-
-ul {
+        ul {
             list-style: none;
             padding: 0;
-            margin: 0 0 35px 0;
-            text-align: left; /* Ровняем по левому краю */
-            width: 100%;      /* Растягиваем на всю ширину карточки */
+            margin: 0 0 40px 0;
+            text-align: left;
+            width: 100%; 
         }
 
         li {
-            font-size: 1.15rem; /* Сделали текст крупнее (было 1rem) */
-            margin-bottom: 18px; /* Добавили чуть больше воздуха между пунктами */
+            font-size: 1.2rem;
+            margin-bottom: 20px; 
             display: flex;
             align-items: center;
             gap: 15px;
-            color: #eee; /* Сделали текст чуть ярче для читаемости */
+            color: #eee; 
         }
 
-        li i { font-size: 0.9rem; }
-        .winna i { color: var(--winna); }
-        .duel i { color: var(--duel); }
+        li i { 
+            font-size: 1rem; 
+            color: var(--duel);
+        }
 
-        /* Кнопки */
         .btn {
             display: block;
             width: 100%;
-            padding: 20px 0;
+            padding: 22px 0;
             border-radius: 18px;
             text-decoration: none;
             text-align: center;
-            font-weight: 800;
+            font-weight: 900;
+            font-size: 1.1rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             transition: all 0.3s ease;
             box-sizing: border-box;
+            background: var(--duel);
+            color: #fff;
+            box-shadow: 0 10px 25px rgba(142, 20, 217, 0.3);
         }
-
-        .winna .btn { background: var(--winna); color: #000; box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2); }
-        .duel .btn { background: var(--duel); color: #fff; box-shadow: 0 10px 20px rgba(142, 20, 217, 0.2); }
 
         .btn:hover { 
             filter: brightness(1.2); 
             transform: scale(1.02);
-            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 35px rgba(142, 20, 217, 0.5);
         }
 
         footer {
             margin-top: auto;
             padding: 60px 0;
-            font-size: 0.75rem;
-            color: #444;
+            font-size: 0.8rem;
+            color: #555;
             text-transform: uppercase;
             letter-spacing: 3px;
         }
 
-        /* Адаптивность для мобилок */
         @media (max-width: 600px) {
-            .top-logos { gap: 30px; }
-            .main-logo { height: 120px; width: 120px; }
-            h1 { font-size: 2rem; }
+            .main-logo { height: 160px; width: 160px; }
+            h1 { font-size: 2.2rem; }
+            .subtitle { font-size: 1rem; padding: 0 10px; }
+            .card { padding: 30px 20px; }
+            li { font-size: 1.05rem; }
         }
     </style>
 </head>
 <body>
 
-   <div class="top-logos">
-    <a href="https://winna.com/?r=Pave21" target="_blank" rel="noopener noreferrer">
-        <img src="image-Photoroom (28).png
-" alt="Winna" class="main-logo">
-    </a>
-
-    <a href="https://duel.com/r/topgwin" target="_blank" rel="noopener noreferrer">
-        <img src="image-Photoroom (30).png
-" alt="Duel" class="main-logo">
-    </a>
-</div>
-        <h1>Elite Crypto Platforms</h1>
-<p class="subtitle">No KYC. Instant Payouts. Play on the most trusted platforms of 2026.</p>
+    <div class="header">
+        <div class="top-logos">
+            <a href="https://duel.com/r/topgwin" target="_blank" rel="noopener noreferrer">
+                <img src="image-Photoroom (30).png" alt="Duel" class="main-logo">
+            </a>
+        </div>
+        <h1>100RTP HUB</h1>
+        <p class="subtitle">Math over luck. We expose the 94% traps and play where the data is fully transparent.</p>
     </div>
 
     <div class="container">
-        <div class="card winna">
-            <h2>Winna</h2>
-            <ul>
-                <li><i class="fas fa-check-double"></i> <b>VIP Transfer</b> — Keep your status</li>
-                <li><i class="fas fa-gift"></i> <b>Weekly & Monthly</b> Rewards</li>
-                <li><i class="fas fa-redo"></i> <b>Unlimited</b> Reloads</li>
-                <li><i class="fas fa-mask"></i> <b>No KYC</b> Required</li>
-            </ul>
-            <a href="https://winna.com/?r=Pave21" target="_blank" rel="noopener noreferrer" class="btn">PLAY ON WINNA</a>
-        </div>
-
         <div class="card duel">
-            <h2>Duel</h2>
+            <h2>DUEL</h2>
             <ul>
                 <li><i class="fas fa-bolt"></i> <b>100% RTP</b> Originals</li>
-                <li><i class="fas fa-coins"></i> <b>Instant 2%</b> Rakeback</li>
+                <li><i class="fas fa-chart-line"></i> <b>Live High Scores</b> & Stats</li>
                 <li><i class="fas fa-wallet"></i> <b>Instant</b> Crypto Cashouts</li>
                 <li><i class="fas fa-mask"></i> <b>No KYC</b> Required</li>
             </ul>
-            <a href="https://duel.com/r/topgwin" target="_blank" rel="noopener noreferrer" class="btn">PLAY ON DUEL</a>
+            <a href="https://duel.com/r/topgwin" target="_blank" rel="noopener noreferrer" class="btn">ENTER DUEL</a>
         </div>
     </div>
 
-    <footer>100RTPHUB.TOP — High Stakes Authority</footer>
+    <footer>100RTPHUB.TOP — HIGH STAKES AUTHORITY</footer>
 
 </body>
 </html>
