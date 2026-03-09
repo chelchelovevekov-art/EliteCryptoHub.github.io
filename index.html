@@ -138,4 +138,230 @@
         .card:hover {
             transform: translateY(-10px);
             border-color: rgba(142, 20, 217, 0.4);
-            box-shadow: 0 25px 50px rgba(0,0,0,
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+        }
+
+        .card h2 {
+            font-size: 2.5rem;
+            margin: 0 0 30px 0;
+            font-weight: 900;
+            color: var(--duel);
+            text-shadow: 0 0 25px rgba(142, 20, 217, 0.4);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 40px 0;
+            text-align: left;
+            width: 100%; 
+        }
+
+        li {
+            font-size: 1.2rem;
+            margin-bottom: 20px; 
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #eee; 
+        }
+
+        li i { 
+            font-size: 1rem; 
+            color: var(--duel);
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 22px 0;
+            border-radius: 18px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 900;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+            background: var(--duel);
+            color: #fff;
+            box-shadow: 0 10px 25px rgba(142, 20, 217, 0.3);
+        }
+
+        .btn:hover { 
+            filter: brightness(1.2); 
+            transform: scale(1.02);
+            box-shadow: 0 15px 35px rgba(142, 20, 217, 0.5);
+        }
+
+        /* --- НОВАЯ ФИЧА: МАНИФЕСТ --- */
+        .manifesto {
+            max-width: 600px;
+            margin: 80px auto 40px;
+            text-align: center;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .manifesto h3 {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .manifesto p {
+            font-size: 1.1rem;
+            color: #aaa;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .manifesto b {
+            color: #fff;
+        }
+
+        /* --- НОВАЯ ФИЧА: FAQ --- */
+        .faq-section {
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        details {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        details[open] {
+            border-color: rgba(142, 20, 217, 0.4);
+            background: rgba(142, 20, 217, 0.05);
+        }
+
+        summary {
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            color: var(--duel);
+            font-size: 1.5rem;
+            font-weight: 400;
+            transition: transform 0.3s;
+        }
+
+        details[open] summary::after {
+            content: '+';
+            transform: rotate(45deg); /* Превращаем плюс в крестик при открытии */
+        }
+
+        .faq-content {
+            margin-top: 15px;
+            color: #aaa;
+            line-height: 1.6;
+            font-size: 1rem;
+            border-top: 1px solid var(--border);
+            padding-top: 15px;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 40px 0;
+            font-size: 0.8rem;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        @media (max-width: 600px) {
+            .main-logo { height: 160px; width: 160px; }
+            h1 { font-size: 2.2rem; }
+            .subtitle { font-size: 1rem; }
+            .card { padding: 30px 20px; }
+            li { font-size: 1.05rem; }
+            .manifesto h3 { font-size: 1.6rem; }
+            .manifesto p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="top-logos">
+            <a href="https://duel.com/r/topgwin" target="_blank" rel="noopener noreferrer">
+                <img src="image-Photoroom (30).png" alt="Duel" class="main-logo">
+            </a>
+        </div>
+        <h1>100RTP HUB</h1>
+        <p class="subtitle">Math over luck. We expose the 94% traps and play where the data is fully transparent.</p>
+        
+        <div class="live-status">
+            <span class="pulse-dot"></span> LIVE: Analyzing High Scores
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card duel">
+            <h2>DUEL</h2>
+            <ul>
+                <li><i class="fas fa-bolt"></i> <b>100% RTP</b> Originals</li>
+                <li><i class="fas fa-chart-line"></i> <b>Live High Scores</b> & Stats</li>
+                <li><i class="fas fa-wallet"></i> <b>Instant</b> Crypto Cashouts</li>
+                <li><i class="fas fa-mask"></i> <b>No KYC</b> Required</li>
+            </ul>
+            <a href="https://duel.com/r/topgwin" target="_blank" rel="noopener noreferrer" class="btn">ENTER DUEL</a>
+        </div>
+    </div>
+
+    <div class="manifesto">
+        <h3>The 94% Trap</h3>
+        <p>Standard platforms are built like black boxes. They hide their real math to keep you playing games coded with a <b>94% Return to Player (RTP)</b> limit. Over time, the math guarantees your balance hits zero.</p>
+        <p>I stopped playing blindly. <b>100RTP HUB</b> exists to filter the noise and list only the platforms where the math is fully open, transparent, and fair. That's why we currently only endorse one project.</p>
+    </div>
+
+    <div class="faq-section">
+        <details>
+            <summary>Why is Duel the only project listed?</summary>
+            <div class="faq-content">
+                Because it's the only platform right now that offers true 100% RTP original games and completely transparent High Score data. If another platform meets our strict mathematical criteria in the future, we will add it. Until then, Duel stands alone.
+            </div>
+        </details>
+        
+        <details>
+            <summary>What exactly is RTP?</summary>
+            <div class="faq-content">
+                RTP stands for Return to Player. A 94% RTP means the house has a massive 6% edge over you. A 100% RTP means there is zero house edge. It’s pure math, not luck.
+            </div>
+        </details>
+
+        <details>
+            <summary>Do I need to verify my identity (KYC)?</summary>
+            <div class="faq-content">
+                No. Duel respects your privacy. You can register, deposit crypto, play, and withdraw your winnings instantly without dealing with annoying KYC protocols.
+            </div>
+        </details>
+    </div>
+
+    <footer>100RTPHUB.TOP — HIGH STAKES AUTHORITY</footer>
+
+</body>
+</html>
