@@ -1,367 +1,422 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>100RTP | The Transparent Platform</title>
-    
-    <link rel="icon" href="100rtpflav.png" type="image/png">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+    <title>ANVIL | Official Rewards & VIP Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #050505;
-            --duel: #8e14d9;
-            --glass: rgba(255, 255, 255, 0.03);
-            --border: rgba(255, 255, 255, 0.1);
-            --live: #00ff41;
+            --bg-dark: #090b10;
+            --card-bg: #121620;
+            --card-border: #1f2637;
+            --accent-green: #00e701;
+            --accent-green-glow: rgba(0, 231, 1, 0.25);
+            --accent-orange: #ff5722;
+            --text-main: #ffffff;
+            --text-muted: #8b95a5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            background-color: var(--bg);
-            background-image: radial-gradient(circle at 50% 40%, rgba(142, 20, 217, 0.15) 0%, transparent 60%);
-            color: white;
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(0, 231, 1, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 85% 80%, rgba(255, 87, 34, 0.08) 0%, transparent 40%);
+            color: var(--text-main);
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-            padding: 60px 0; /* Убрали боковые паддинги для body, перенесли в секции */
-            overflow-x: hidden;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 50px;
-            width: 100%;
-            padding: 0 20px;
-            box-sizing: border-box;
-        }
-
-        .top-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        .main-logo {
-            height: 220px; 
-            width: 220px;
-            object-fit: contain;
-            filter: drop-shadow(0 0 25px rgba(142, 20, 217, 0.3));
-            transition: all 0.4s ease;
-        }
-
-        .main-logo:hover {
-            transform: scale(1.05);
-            filter: drop-shadow(0 0 40px rgba(142, 20, 217, 0.5));
-        }
-
-        h1 {
-            font-weight: 900;
-            font-size: 3.5rem;
-            letter-spacing: -1px;
-            margin: 0 0 15px 0;
-            background: linear-gradient(to right, #fff, #888);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
-            text-align: center;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            color: #aaa;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-            font-weight: 400;
-            text-align: center;
-        }
-
-        /* --- НОВАЯ ФИЧА: LIVE СТАТУС --- */
-        .live-status {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-size: 0.9rem;
-            color: var(--live);
-            margin-top: 20px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .pulse-dot {
-            width: 10px;
-            height: 10px;
-            background-color: var(--live);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--live);
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 255, 65, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 65, 0); }
+            padding: 32px 16px;
+            line-height: 1.5;
         }
 
         .container {
             width: 100%;
-            max-width: 500px;
-            display: flex;
-            flex-direction: column;
-            padding: 0 20px;
-            box-sizing: border-box;
-            margin-top: 20px !important;
+            max-width: 480px;
         }
 
-        .card {
-            position: relative;
-            background: var(--glass);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid var(--border);
-            border-radius: 28px;
-            padding: 40px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        /* Header & Brand */
+        .header {
             text-align: center;
+            margin-bottom: 24px;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(142, 20, 217, 0.4);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
-        }
-
-        .card h2 {
-            font-size: 2.5rem;
-            margin: 0 0 30px 0;
+        .avatar-badge {
+            width: 84px;
+            height: 84px;
+            border-radius: 22px;
+            background: linear-gradient(135deg, #1e2536 0%, #0d1017 100%);
+            border: 2px solid var(--accent-green);
+            box-shadow: 0 0 25px var(--accent-green-glow);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
             font-weight: 900;
-            color: var(--duel);
-            text-shadow: 0 0 25px rgba(142, 20, 217, 0.4);
+            letter-spacing: -1px;
+            color: var(--text-main);
+            margin-bottom: 12px;
         }
 
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 40px 0;
-            text-align: left;
-            width: 100%; 
+        .brand-title {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        li {
-            font-size: 1.2rem;
-            margin-bottom: 20px; 
+        .brand-subtitle {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        /* Main Offer Card (Duel.com) */
+        .main-card {
+            background: linear-gradient(180deg, #171d2b 0%, var(--card-bg) 100%);
+            border: 1px solid rgba(0, 231, 1, 0.4);
+            border-radius: 20px;
+            padding: 24px 20px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 231, 1, 0.08);
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .badge-top {
+            display: inline-block;
+            background: rgba(0, 231, 1, 0.15);
+            color: var(--accent-green);
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px 12px;
+            border-radius: 99px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(0, 231, 1, 0.3);
+        }
+
+        .offer-title {
+            font-size: 24px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        .offer-title span {
+            color: var(--accent-green);
+        }
+
+        .offer-perks {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 14px 0 18px;
+        }
+
+        .perk-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #d1d7e0;
+        }
+
+        /* Promo Code Box */
+        .code-box {
+            background: #090b10;
+            border: 1px dashed var(--card-border);
+            border-radius: 12px;
+            padding: 10px 14px;
             display: flex;
             align-items: center;
-            gap: 15px;
-            color: #eee; 
+            justify-content: space-between;
+            margin-bottom: 14px;
         }
 
-        li i { 
-            font-size: 1rem; 
-            color: var(--duel);
+        .code-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 700;
         }
 
-        .btn {
+        .code-value {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--accent-green);
+            letter-spacing: 1.5px;
+        }
+
+        .copy-btn {
+            background: #1f2637;
+            color: #fff;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #2c354d;
+        }
+
+        /* Primary CTA Button */
+        .cta-btn {
             display: block;
             width: 100%;
-            padding: 22px 0;
-            border-radius: 18px;
+            background: var(--accent-green);
+            color: #05070a;
+            text-align: center;
             text-decoration: none;
-            text-align: center;
             font-weight: 900;
-            font-size: 1.1rem;
+            font-size: 16px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            transition: all 0.3s ease;
-            box-sizing: border-box;
-            background: var(--duel);
-            color: #fff;
-            box-shadow: 0 10px 25px rgba(142, 20, 217, 0.3);
+            letter-spacing: 0.5px;
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px var(--accent-green-glow);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
 
-        .btn:hover { 
-            filter: brightness(1.2); 
-            transform: scale(1.02);
-            box-shadow: 0 15px 35px rgba(142, 20, 217, 0.5);
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 231, 1, 0.45);
         }
 
-        /* --- НОВАЯ ФИЧА: МАНИФЕСТ --- */
-        .manifesto {
-            max-width: 600px;
-            margin: 80px auto 40px;
-            text-align: center;
-            padding: 0 20px;
-            box-sizing: border-box;
-        }
-
-        .manifesto h3 {
-            font-size: 2rem;
-            font-weight: 900;
+        /* Steps Section */
+        .steps-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 16px;
             margin-bottom: 20px;
+        }
+
+        .steps-title {
+            font-size: 12px;
+            font-weight: 800;
             text-transform: uppercase;
-            color: #fff;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            margin-bottom: 10px;
         }
 
-        .manifesto p {
-            font-size: 1.1rem;
-            color: #aaa;
-            line-height: 1.7;
-            margin-bottom: 15px;
-        }
-
-        .manifesto b {
-            color: #fff;
-        }
-
-        /* --- НОВАЯ ФИЧА: FAQ --- */
-        .faq-section {
-            max-width: 600px;
-            width: 100%;
-            margin: 0 auto 40px;
-            padding: 0 20px;
-            box-sizing: border-box;
-        }
-
-        details {
-            background: var(--glass);
-            border: 1px solid var(--border);
-            border-radius: 15px;
-            margin-bottom: 15px;
-            padding: 20px;
-            transition: all 0.3s ease;
-        }
-
-        details[open] {
-            border-color: rgba(142, 20, 217, 0.4);
-            background: rgba(142, 20, 217, 0.05);
-        }
-
-        summary {
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            list-style: none;
+        .step-item {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            color: #fff;
+            gap: 10px;
+            font-size: 13px;
+            margin-bottom: 8px;
+            color: #d1d7e0;
         }
 
-        summary::-webkit-details-marker {
-            display: none;
+        .step-item:last-child {
+            margin-bottom: 0;
         }
 
-        summary::after {
-            content: '+';
-            color: var(--duel);
-            font-size: 1.5rem;
-            font-weight: 400;
-            transition: transform 0.3s;
+        .step-num {
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            background: rgba(0, 231, 1, 0.15);
+            color: var(--accent-green);
+            font-weight: 800;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
 
-        details[open] summary::after {
-            content: '+';
-            transform: rotate(45deg); /* Превращаем плюс в крестик при открытии */
+        /* Social Links */
+        .links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
-        .faq-content {
-            margin-top: 15px;
-            color: #aaa;
-            line-height: 1.6;
-            font-size: 1rem;
-            border-top: 1px solid var(--border);
-            padding-top: 15px;
+        .social-link {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 16px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: border-color 0.2s, transform 0.15s;
         }
 
-        footer {
-            margin-top: auto;
-            padding: 40px 0;
-            font-size: 0.8rem;
-            color: #555;
-            text-transform: uppercase;
-            letter-spacing: 3px;
+        .social-link:hover {
+            border-color: #3b4664;
+            transform: translateY(-2px);
         }
 
-        @media (max-width: 600px) {
-            .main-logo { height: 160px; width: 160px; }
-            h1 { font-size: 2.2rem; }
-            .subtitle { font-size: 1rem; }
-            .card { padding: 30px 20px; }
-            li { font-size: 1.05rem; }
-            .manifesto h3 { font-size: 1.6rem; }
-            .manifesto p { font-size: 1rem; }
+        .social-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .social-name {
+            font-weight: 800;
+            font-size: 15px;
+        }
+
+        .social-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .social-arrow {
+            font-weight: 900;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 32px;
+            text-align: center;
+            font-size: 11px;
+            color: #555f70;
+            max-width: 400px;
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <div class="top-logos">
-            <a href="https://duel.com/r/topgwin" target="_blank" rel="noopener noreferrer">
-                <img src="image-Photoroom (30).png" alt="Duel" class="main-logo">
+    <div class="container">
+        <!-- Brand Header -->
+        <header class="header">
+            <div class="avatar-badge">⚒️</div>
+            <h1 class="brand-title">ANVIL</h1>
+            <p class="brand-subtitle">High-Stakes Challenges • 1v1 Crypto Arena • VIP Rewards</p>
+        </header>
+
+        <!-- Main Offer Card -->
+        <section class="main-card">
+            <div class="badge-top">🔥 Exclusive Partner Offer</div>
+            <h2 class="offer-title">UNLOCK <span>50% INSTANT RAKEBACK</span> ON DUEL.COM</h2>
+            
+            <div class="offer-perks">
+                <span class="perk-tag">⚡ Zero Wager Bonus</span>
+                <span class="perk-tag">🎱 1v1 Skill Arena (0% Fee)</span>
+                <span class="perk-tag">🔓 Instant Crypto Cashout</span>
+            </div>
+
+            <div class="code-box">
+                <div>
+                    <div class="code-label">Referral Code</div>
+                    <div class="code-value" id="promoCode">ANVILwin</div>
+                </div>
+                <button class="copy-btn" onclick="copyCode()" id="copyBtn">COPY CODE</button>
+            </div>
+
+            <a href="https://duel.com/r/ANVILwin" id="duelLink" target="_blank" rel="noopener" class="cta-btn">
+                Claim 50% Rakeback Now →
+            </a>
+        </section>
+
+        <!-- 3 Simple Steps -->
+        <section class="steps-card">
+            <div class="steps-title">How to activate VIP benefits:</div>
+            <div class="step-item">
+                <div class="step-num">1</div>
+                <div>Sign up on <strong>Duel.com</strong> via button above or code <strong>ANVILwin</strong></div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">2</div>
+                <div>Get instant 50% Rakeback on every spin & original game</div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">3</div>
+                <div>Join Discord below for weekly crypto drops & 1v1 lobbies</div>
+            </div>
+        </section>
+
+        <!-- Community & Content Links -->
+        <div class="links-list">
+            <a href="#" id="discordLink" target="_blank" rel="noopener" class="social-link">
+                <div class="social-info">
+                    <span class="social-name">🎁 Join ANVIL Discord</span>
+                    <span class="social-desc">Weekly Crypto Giveaways for Code "ANVILwin" Players</span>
+                </div>
+                <span class="social-arrow">→</span>
+            </a>
+
+            <a href="#" id="kickLink" target="_blank" rel="noopener" class="social-link">
+                <div class="social-info">
+                    <span class="social-name">🟢 Watch Live on Kick</span>
+                    <span class="social-desc">Live Bonus Hunts & 1v1 Viewers in Duel Arena</span>
+                </div>
+                <span class="social-arrow">→</span>
+            </a>
+
+            <a href="#" id="youtubeLink" target="_blank" rel="noopener" class="social-link">
+                <div class="social-info">
+                    <span class="social-name">▶️ Subscribe on YouTube</span>
+                    <span class="social-desc">Wheel Challenges, Max Wins & Casino Reviews</span>
+                </div>
+                <span class="social-arrow">→</span>
             </a>
         </div>
-        <h1>100RTP HUB</h1>
-        <p class="subtitle">Math over luck. We expose the 94% traps and play where the data is fully transparent.</p>
-        
-        <div class="live-status">
-            <span class="pulse-dot"></span> LIVE: Analyzing High Scores
-        </div>
+
+        <!-- Responsible Gambling Disclaimer -->
+        <footer class="footer">
+            18+ Only. Gamble Responsibly. Do not gamble with money you cannot afford to lose. Crypto gambling may not be legal in your jurisdiction—always check your local laws before playing.
+        </footer>
     </div>
 
-    <div class="container">
-        <div class="card duel">
-            <h2>DUEL</h2>
-            <ul>
-                <li><i class="fas fa-bolt"></i> <b>100% RTP</b> Originals</li>
-                <li><i class="fas fa-chart-line"></i> <b>Live High Scores</b> & Stats</li>
-                <li><i class="fas fa-wallet"></i> <b>Instant</b> Crypto Cashouts</li>
-                <li><i class="fas fa-mask"></i> <b>No KYC</b> Required</li>
-            </ul>
-            <a href="https://duel.com/r/topgwin" target="_blank" rel="noopener noreferrer" class="btn">ENTER DUEL</a>
-        </div>
-    </div>
+    <script>
+        // ==========================================
+        // НАСТРОЙКИ ССЫЛОК:
+        // ==========================================
+        const CONFIG = {
+            promoCode: "ANVILwin",
+            duelAffiliateUrl: "https://duel.com/r/ANVILwin",
+            discordUrl: "https://discord.gg/YOUR_INVITE",  // Заменишь, когда создашь Discord
+            kickUrl: "https://kick.com/YOUR_CHANNEL",      // Заменишь на свой Kick
+            youtubeUrl: "https://youtube.com/@YOUR_HANDLE" // Заменишь на свой YouTube
+        };
 
-    <div class="manifesto">
-        <h3>The 94% Trap</h3>
-        <p>Standard platforms are built like black boxes. They hide their real math to keep you playing games coded with a <b>94% Return to Player (RTP)</b> limit. Over time, the math guarantees your balance hits zero.</p>
-        <p>I stopped playing blindly. <b>100RTP HUB</b> exists to filter the noise and list only the platforms where the math is fully open, transparent, and fair. That's why we currently only endorse one project.</p>
-    </div>
+        // Инициализация ссылок
+        document.getElementById('promoCode').innerText = CONFIG.promoCode;
+        document.getElementById('duelLink').href = CONFIG.duelAffiliateUrl;
+        document.getElementById('discordLink').href = CONFIG.discordUrl;
+        document.getElementById('kickLink').href = CONFIG.kickUrl;
+        document.getElementById('youtubeLink').href = CONFIG.youtubeUrl;
 
-    <div class="faq-section">
-        <details>
-            <summary>Why is Duel the only project listed?</summary>
-            <div class="faq-content">
-                Because it's the only platform right now that offers true 100% RTP original games and completely transparent High Score data. If another platform meets our strict mathematical criteria in the future, we will add it. Until then, Duel stands alone.
-            </div>
-        </details>
-        
-        <details>
-            <summary>What exactly is RTP?</summary>
-            <div class="faq-content">
-                RTP stands for Return to Player. A 94% RTP means the house has a massive 6% edge over you. A 100% RTP means there is zero house edge. It’s pure math, not luck.
-            </div>
-        </details>
-
-        <details>
-            <summary>Do I need to verify my identity (KYC)?</summary>
-            <div class="faq-content">
-                No. Duel respects your privacy. You can register, deposit crypto, play, and withdraw your winnings instantly without dealing with annoying KYC protocols.
-            </div>
-        </details>
-    </div>
-
-    <footer>100RTPHUB.TOP — HIGH STAKES AUTHORITY</footer>
-
+        // Копирование промокода
+        function copyCode() {
+            navigator.clipboard.writeText(CONFIG.promoCode);
+            const btn = document.getElementById('copyBtn');
+            btn.innerText = "COPIED! ✓";
+            btn.style.background = "#00e701";
+            btn.style.color = "#05070a";
+            setTimeout(() => {
+                btn.innerText = "COPY CODE";
+                btn.style.background = "#1f2637";
+                btn.style.color = "#ffffff";
+            }, 2000);
+        }
+    </script>
 </body>
 </html>
