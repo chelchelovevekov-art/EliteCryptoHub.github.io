@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANVIL.GG | Official VIP Crypto Rewards & Challenges</title>
+    <title>ANVIL — Official High-Roller VIP Hub & Duel.com Partner</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-main: #06080c;
-            --bg-surface: #0d111a;
-            --bg-card: rgba(18, 23, 35, 0.75);
-            --border-color: rgba(255, 255, 255, 0.08);
-            --border-highlight: rgba(0, 231, 1, 0.35);
-            --neon-green: #00e701;
-            --neon-glow: rgba(0, 231, 1, 0.25);
-            --accent-blue: #3b82f6;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
+            --bg-void: #030407;
+            --bg-obsidian: #080b11;
+            --glass-bg: rgba(13, 17, 26, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.07);
+            --glass-specular: rgba(255, 255, 255, 0.14);
+            --emerald: #00ff66;
+            --emerald-dim: #00cc52;
+            --emerald-glow: rgba(0, 255, 102, 0.25);
+            --gold: #ffb800;
+            --text-main: #ffffff;
+            --text-muted: #8a94a6;
+            --text-dim: #525b6d;
         }
 
         * {
@@ -29,38 +31,105 @@
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-primary);
-            line-height: 1.6;
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-void);
+            color: var(--text-main);
             overflow-x: hidden;
+            line-height: 1.5;
+            position: relative;
+        }
+
+        /* Ambient Aurora & Grid Background */
+        .ambient-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background: 
+                radial-gradient(circle at 50% -10%, rgba(0, 255, 102, 0.14) 0%, transparent 45%),
+                radial-gradient(circle at 15% 40%, rgba(0, 140, 255, 0.06) 0%, transparent 35%),
+                radial-gradient(circle at 85% 75%, rgba(0, 255, 102, 0.07) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .grid-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
             background-image: 
-                radial-gradient(circle at 15% 10%, rgba(0, 231, 1, 0.09) 0%, transparent 40%),
-                radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.07) 0%, transparent 40%),
-                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+                linear-gradient(to right, rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 56px 56px;
+            mask-image: radial-gradient(ellipse 80% 60% at 50% 20%, #000 30%, transparent 100%);
+            -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 20%, #000 30%, transparent 100%);
+            pointer-events: none;
+        }
+
+        /* Live Top Ticker */
+        .ticker-wrap {
+            width: 100%;
+            background: rgba(0, 255, 102, 0.04);
+            border-bottom: 1px solid rgba(0, 255, 102, 0.15);
+            overflow: hidden;
+            padding: 8px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #d1fae5;
+        }
+
+        .ticker {
+            display: flex;
+            width: max-content;
+            animation: marquee 32s linear infinite;
+        }
+
+        .ticker-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 28px;
+        }
+
+        .ticker-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--emerald);
+            box-shadow: 0 0 8px var(--emerald);
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         .container {
-            max-width: 1180px;
+            max-width: 1240px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* Navbar */
-        .navbar {
+        /* Floating Luxury Navbar */
+        .nav-holder {
             position: sticky;
-            top: 0;
+            top: 18px;
             z-index: 100;
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            background: rgba(6, 8, 12, 0.8);
-            border-bottom: 1px solid var(--border-color);
-            padding: 16px 0;
+            padding: 0 24px;
+            margin-top: 18px;
         }
 
-        .nav-inner {
+        .navbar {
+            max-width: 1192px;
+            margin: 0 auto;
+            background: rgba(8, 11, 17, 0.78);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--glass-border);
+            box-shadow: inset 0 1px 0 0 var(--glass-specular), 0 20px 40px rgba(0, 0, 0, 0.6);
+            border-radius: 18px;
+            padding: 12px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -69,288 +138,395 @@
         .brand {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             text-decoration: none;
-            color: var(--text-primary);
+            color: var(--text-main);
         }
 
-        .brand-logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, #00e701 0%, #008f00 100%);
+        .brand-emblem {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #131b2e 0%, #090d16 100%);
+            border: 1px solid rgba(0, 255, 102, 0.4);
+            box-shadow: inset 0 0 15px rgba(0, 255, 102, 0.2), 0 0 20px rgba(0, 255, 102, 0.15);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 20px var(--neon-glow);
         }
 
-        .brand-logo svg {
-            width: 24px;
-            height: 24px;
-            fill: #05070a;
+        .brand-emblem svg {
+            width: 22px;
+            height: 22px;
+            fill: var(--emerald);
+            filter: drop-shadow(0 0 6px var(--emerald-glow));
         }
 
-        .brand-name {
+        .brand-text {
             font-size: 22px;
-            font-weight: 800;
-            letter-spacing: 1px;
+            font-weight: 900;
+            letter-spacing: 2px;
         }
 
-        .verified-pill {
-            font-size: 11px;
+        .partner-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
             font-weight: 700;
-            background: rgba(0, 231, 1, 0.12);
-            color: var(--neon-green);
+            color: var(--emerald);
+            background: rgba(0, 255, 102, 0.1);
+            border: 1px solid rgba(0, 255, 102, 0.25);
             padding: 3px 8px;
             border-radius: 6px;
-            border: 1px solid rgba(0, 231, 1, 0.25);
-            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .nav-links {
+        .nav-menu {
             display: flex;
-            gap: 28px;
             align-items: center;
+            gap: 32px;
         }
 
-        .nav-links a {
-            color: var(--text-secondary);
+        .nav-menu a {
+            color: var(--text-muted);
             text-decoration: none;
             font-size: 14px;
             font-weight: 600;
             transition: color 0.2s;
         }
 
-        .nav-links a:hover {
-            color: var(--text-primary);
+        .nav-menu a:hover {
+            color: var(--text-main);
         }
 
-        .nav-cta {
-            background: var(--neon-green);
-            color: #05070a !important;
-            padding: 10px 20px;
-            border-radius: 10px;
+        .nav-btn {
+            background: linear-gradient(180deg, #00ff66 0%, #00c44f 100%);
+            color: #020503 !important;
             font-weight: 800 !important;
-            box-shadow: 0 0 18px var(--neon-glow);
-            transition: transform 0.2s !important;
+            padding: 10px 22px;
+            border-radius: 11px;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 0 25px var(--emerald-glow);
+            transition: transform 0.2s, box-shadow 0.2s !important;
         }
 
-        .nav-cta:hover {
-            transform: translateY(-2px);
+        .nav-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 0 35px rgba(0, 255, 102, 0.5);
         }
 
         /* Hero Section */
         .hero {
-            padding: 64px 0 48px;
+            padding: 72px 0 56px;
             display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
-            gap: 40px;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 48px;
             align-items: center;
         }
 
-        .status-badge {
+        .eyebrow {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border-color);
-            padding: 6px 14px;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            padding: 7px 16px;
             border-radius: 99px;
             font-size: 12px;
             font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
             color: #cbd5e1;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
-        .pulse-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--neon-green);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--neon-green);
+        .eyebrow-badge {
+            background: var(--emerald);
+            color: #020503;
+            font-weight: 900;
+            padding: 2px 7px;
+            border-radius: 99px;
+            font-size: 10px;
         }
 
-        .hero h1 {
-            font-size: 52px;
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -1px;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            background: linear-gradient(90deg, #00e701, #6ee7b7);
+        .hero-title {
+            font-size: 62px;
+            font-weight: 900;
+            line-height: 1.03;
+            letter-spacing: -2px;
+            margin-bottom: 22px;
+            background: linear-gradient(180deg, #ffffff 30%, #94a3b8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero-desc {
-            font-size: 17px;
-            color: var(--text-secondary);
-            max-width: 540px;
-            margin-bottom: 28px;
+        .hero-title .accent {
+            background: linear-gradient(90deg, #00ff66 0%, #7affb2 50%, #00d656 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 30px rgba(0, 255, 102, 0.25));
         }
 
-        /* Promo Code Interactive Bar */
-        .promo-bar {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-highlight);
-            border-radius: 16px;
-            padding: 16px 20px;
+        .hero-sub {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 540px;
+            margin-bottom: 34px;
+            font-weight: 400;
+        }
+
+        .hero-sub strong {
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        /* Luxury Command Vault (Promo Code Bar) */
+        .vault-bar {
+            background: linear-gradient(180deg, rgba(20, 27, 41, 0.85) 0%, rgba(10, 14, 22, 0.95) 100%);
+            border: 1px solid rgba(0, 255, 102, 0.35);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 255, 102, 0.08);
+            border-radius: 20px;
+            padding: 10px 10px 10px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            max-width: 520px;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            max-width: 540px;
+            margin-bottom: 18px;
+            position: relative;
         }
 
-        .promo-info {
+        .vault-meta {
             display: flex;
             flex-direction: column;
         }
 
-        .promo-label {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-secondary);
-            font-weight: 700;
-        }
-
-        .promo-code-text {
+        .vault-label {
+            font-size: 10px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--neon-green);
+            text-transform: uppercase;
             letter-spacing: 1.5px;
+            color: var(--text-muted);
         }
 
-        .promo-actions {
+        .vault-code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--emerald);
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px var(--emerald-glow);
+        }
+
+        .vault-actions {
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
 
-        .btn-copy {
-            background: rgba(255, 255, 255, 0.08);
-            color: var(--text-primary);
-            border: 1px solid var(--border-color);
-            padding: 12px 18px;
-            border-radius: 10px;
+        .btn-copy-code {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
             font-weight: 700;
             font-size: 13px;
+            padding: 14px 18px;
+            border-radius: 13px;
             cursor: pointer;
             transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .btn-copy:hover {
-            background: rgba(255, 255, 255, 0.14);
+        .btn-copy-code:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.25);
         }
 
-        .btn-main {
-            display: inline-flex;
+        .btn-primary-claim {
+            position: relative;
+            overflow: hidden;
+            display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            background: var(--neon-green);
-            color: #05070a;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 16px;
-            padding: 18px 34px;
-            border-radius: 14px;
-            box-shadow: 0 8px 30px var(--neon-glow);
-            transition: all 0.2s;
+            gap: 12px;
             width: 100%;
-            max-width: 520px;
+            max-width: 540px;
+            background: linear-gradient(180deg, #00ff66 0%, #00bf4c 100%);
+            color: #020503;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            padding: 20px 32px;
+            border-radius: 16px;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 12px 35px rgba(0, 255, 102, 0.3);
+            transition: all 0.25s ease;
         }
 
-        .btn-main:hover {
+        .btn-primary-claim::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+            transform: skewX(-25deg);
+            animation: shimmer 4s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            35%, 100% { left: 160%; }
+        }
+
+        .btn-primary-claim:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(0, 231, 1, 0.4);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 18px 45px rgba(0, 255, 102, 0.45);
         }
 
-        .trust-row {
+        .hero-metrics {
             display: flex;
-            gap: 24px;
-            margin-top: 24px;
-            color: var(--text-secondary);
-            font-size: 13px;
-            font-weight: 600;
+            gap: 28px;
+            margin-top: 28px;
+            padding-top: 24px;
+            border-top: 1px solid var(--glass-border);
+            max-width: 540px;
         }
 
-        .trust-item {
+        .metric-item {
             display: flex;
-            align-items: center;
-            gap: 6px;
+            flex-direction: column;
         }
 
-        .trust-item span {
-            color: var(--neon-green);
+        .metric-val {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text-main);
         }
 
-        /* Calculator Card */
-        .calc-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
+        .metric-lbl {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Right Hero: Interactive VIP Terminal */
+        .spotlight-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--glass-border);
+            box-shadow: inset 0 1px 0 0 var(--glass-specular), 0 25px 60px rgba(0, 0, 0, 0.65);
+            border-radius: 26px;
             padding: 32px;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
             position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s;
         }
 
-        .calc-header {
+        .spotlight-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 0%), rgba(0, 255, 102, 0.1), transparent 40%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .spotlight-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .terminal-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--glass-border);
         }
 
-        .calc-title {
-            font-size: 18px;
+        .terminal-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
             font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .calc-tag {
+        .live-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
-            font-weight: 700;
-            color: var(--neon-green);
-            background: rgba(0, 231, 1, 0.1);
+            color: var(--emerald);
+            background: rgba(0, 255, 102, 0.08);
+            border: 1px solid rgba(0, 255, 102, 0.2);
             padding: 4px 10px;
             border-radius: 99px;
         }
 
-        .slider-group {
-            margin-bottom: 24px;
+        .preset-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 20px;
         }
 
-        .slider-label {
+        .preset-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .preset-btn:hover, .preset-btn.active {
+            background: rgba(0, 255, 102, 0.12);
+            border-color: var(--emerald);
+            color: var(--text-main);
+        }
+
+        .wager-display-box {
             display: flex;
             justify-content: space-between;
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin-bottom: 10px;
+            align-items: baseline;
+            margin-bottom: 12px;
+        }
+
+        .wager-label {
+            font-size: 13px;
+            color: var(--text-muted);
             font-weight: 600;
         }
 
-        .slider-val {
+        .wager-number {
             font-family: 'JetBrains Mono', monospace;
-            color: var(--text-primary);
+            font-size: 28px;
             font-weight: 800;
-            font-size: 18px;
+            color: var(--text-main);
         }
 
         input[type="range"] {
             width: 100%;
             -webkit-appearance: none;
-            height: 8px;
-            background: #1e293b;
+            height: 6px;
+            background: #1a2234;
             border-radius: 99px;
             outline: none;
+            margin-bottom: 28px;
         }
 
         input[type="range"]::-webkit-slider-thumb {
@@ -358,125 +534,244 @@
             width: 22px;
             height: 22px;
             border-radius: 50%;
-            background: var(--neon-green);
+            background: var(--emerald);
+            border: 3px solid #04070b;
+            box-shadow: 0 0 15px var(--emerald);
             cursor: pointer;
-            box-shadow: 0 0 15px var(--neon-green);
         }
 
-        .calc-results {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
-            margin-bottom: 20px;
+        .comparison-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 24px;
         }
 
-        .res-box {
-            background: rgba(6, 8, 12, 0.7);
-            border: 1px solid var(--border-color);
-            padding: 16px;
+        .bar-group {
+            background: rgba(3, 4, 7, 0.6);
+            border: 1px solid var(--glass-border);
             border-radius: 14px;
+            padding: 16px;
         }
 
-        .res-box.highlight {
-            border-color: var(--border-highlight);
-            background: rgba(0, 231, 1, 0.05);
+        .bar-group.duel-highlight {
+            border-color: rgba(0, 255, 102, 0.35);
+            background: linear-gradient(90deg, rgba(0, 255, 102, 0.08) 0%, rgba(3, 4, 7, 0.7) 100%);
         }
 
-        .res-name {
-            font-size: 12px;
-            color: var(--text-secondary);
-            font-weight: 600;
-            margin-bottom: 6px;
+        .bar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
         }
 
-        .res-amount {
+        .bar-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+
+        .bar-group.duel-highlight .bar-name {
+            color: var(--text-main);
+        }
+
+        .bar-val {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 800;
         }
 
-        .res-box.highlight .res-amount {
-            color: var(--neon-green);
+        .bar-group.duel-highlight .bar-val {
+            color: var(--emerald);
+            text-shadow: 0 0 12px var(--emerald-glow);
         }
 
-        .calc-note {
+        .progress-track {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .progress-fill-old {
+            width: 10%;
+            height: 100%;
+            background: #475569;
+            border-radius: 99px;
+        }
+
+        .progress-fill-duel {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #00ff66, #a7f3d0);
+            border-radius: 99px;
+            box-shadow: 0 0 12px var(--emerald);
+        }
+
+        .terminal-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-size: 12px;
-            color: var(--text-secondary);
-            text-align: center;
+            color: var(--text-muted);
+            padding-top: 14px;
+            border-top: 1px solid var(--glass-border);
         }
 
-        /* Section Titles */
+        .extra-gain {
+            color: var(--emerald);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 800;
+        }
+
+        /* Bento Grid Section */
         .section {
             padding: 64px 0;
         }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 44px;
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 36px;
         }
 
-        .section-header h2 {
-            font-size: 34px;
-            font-weight: 800;
-            margin-bottom: 10px;
+        .section-head h2 {
+            font-size: 38px;
+            font-weight: 900;
+            letter-spacing: -1px;
         }
 
-        .section-header p {
-            color: var(--text-secondary);
-            font-size: 16px;
+        .section-head p {
+            color: var(--text-muted);
+            font-size: 15px;
+            max-width: 420px;
         }
 
-        /* 3 Steps Grid */
-        .steps-grid {
+        .bento-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 22px;
         }
 
-        .step-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 28px;
-            transition: transform 0.2s, border-color 0.2s;
-        }
+        .bento-span-7 { grid-column: span 7; }
+        .bento-span-5 { grid-column: span 5; }
+        .bento-span-4 { grid-column: span 4; }
 
-        .step-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .step-number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
-            font-weight: 800;
-            color: var(--neon-green);
-            background: rgba(0, 231, 1, 0.1);
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
+        .icon-box {
+            width: 46px;
+            height: 46px;
+            border-radius: 13px;
+            background: rgba(0, 255, 102, 0.08);
+            border: 1px solid rgba(0, 255, 102, 0.25);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
         }
 
-        .step-card h3 {
-            font-size: 19px;
+        .icon-box svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--emerald);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .bento-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--emerald);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .spotlight-card h3 {
+            font-size: 24px;
             font-weight: 800;
             margin-bottom: 10px;
+            letter-spacing: -0.5px;
         }
 
-        .step-card p {
-            color: var(--text-secondary);
+        .spotlight-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        .arena-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 22px;
+        }
+
+        .arena-pill {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--glass-border);
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .arena-pill span {
+            color: var(--emerald);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+        }
+
+        /* Social Ecosystem Cards */
+        .social-card {
+            text-decoration: none;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 230px;
+        }
+
+        .social-card:hover {
+            border-color: rgba(0, 255, 102, 0.4);
+        }
+
+        .social-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .platform-pill {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 99px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+        }
+
+        .cta-arrow {
+            margin-top: 22px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             font-size: 14px;
+            font-weight: 800;
+            color: var(--emerald);
         }
 
-        /* Comparison Table */
-        .table-wrap {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 22px;
+        /* Luxury Comparison Matrix */
+        .matrix-card {
+            padding: 0;
             overflow: hidden;
         }
 
@@ -487,16 +782,17 @@
         }
 
         th, td {
-            padding: 20px 24px;
-            border-bottom: 1px solid var(--border-color);
+            padding: 22px 28px;
+            border-bottom: 1px solid var(--glass-border);
         }
 
         th {
-            font-size: 13px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--text-secondary);
-            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.015);
         }
 
         td {
@@ -504,412 +800,412 @@
             font-weight: 600;
         }
 
-        .col-duel {
-            color: var(--neon-green);
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .duel-col {
+            background: rgba(0, 255, 102, 0.04);
+            color: var(--emerald);
             font-weight: 800;
-            background: rgba(0, 231, 1, 0.03);
-        }
-
-        /* Community & Socials Grid */
-        .community-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .social-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 28px;
-            text-decoration: none;
-            color: var(--text-primary);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.2s;
-        }
-
-        .social-card:hover {
-            border-color: var(--neon-green);
-            transform: translateY(-4px);
-        }
-
-        .social-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-
-        .social-badge {
-            font-size: 12px;
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.06);
-        }
-
-        .social-card h3 {
-            font-size: 20px;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-
-        .social-card p {
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-        }
-
-        .social-link-text {
-            font-size: 14px;
-            font-weight: 800;
-            color: var(--neon-green);
-        }
-
-        /* FAQ */
-        .faq-list {
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        details {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 20px 24px;
-            cursor: pointer;
-        }
-
-        summary {
-            font-weight: 700;
-            font-size: 16px;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        summary::after {
-            content: "+";
-            font-size: 22px;
-            color: var(--neon-green);
-        }
-
-        details[open] summary::after {
-            content: "−";
-        }
-
-        details p {
-            margin-top: 12px;
-            color: var(--text-secondary);
-            font-size: 14px;
+            border-left: 1px solid rgba(0, 255, 102, 0.15);
+            border-right: 1px solid rgba(0, 255, 102, 0.15);
         }
 
         /* Footer */
         footer {
-            border-top: 1px solid var(--border-color);
-            padding: 40px 0;
-            margin-top: 40px;
-            text-align: center;
-            color: var(--text-secondary);
+            margin-top: 64px;
+            border-top: 1px solid var(--glass-border);
+            padding: 44px 0;
+            color: var(--text-dim);
             font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
         }
 
-        /* Responsive */
-        @media (max-width: 920px) {
-            .hero {
-                grid-template-columns: 1fr;
-                padding: 36px 0;
-            }
-            .hero h1 {
-                font-size: 36px;
-            }
-            .steps-grid, .community-grid {
-                grid-template-columns: 1fr;
-            }
-            .nav-links a:not(.nav-cta) {
-                display: none;
-            }
-            th, td {
-                padding: 14px 12px;
-                font-size: 13px;
-            }
+        @media (max-width: 980px) {
+            .hero { grid-template-columns: 1fr; padding: 40px 0; }
+            .hero-title { font-size: 42px; }
+            .bento-span-7, .bento-span-5, .bento-span-4 { grid-column: span 12; }
+            .nav-menu a:not(.nav-btn) { display: none; }
+            .section-head { flex-direction: column; align-items: flex-start; gap: 10px; }
+            th, td { padding: 14px 16px; font-size: 13px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Navigation -->
-    <nav class="navbar">
-        <div class="container nav-inner">
+    <div class="ambient-bg"></div>
+    <div class="grid-overlay"></div>
+
+    <!-- Live Top Ticker -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker-item"><span class="ticker-dot"></span> VERIFIED DUEL.COM PARTNER: CODE "ANVILwin"</div>
+            <div class="ticker-item"><span class="ticker-dot"></span> 50% INSTANT RAKEBACK UNLOCKED</div>
+            <div class="ticker-item"><span class="ticker-dot"></span> 0% HOUSE EDGE ORIGINALS</div>
+            <div class="ticker-item"><span class="ticker-dot"></span> 1V1 SKILL ARENA (8-BALL POOL, POKER, TETRIS — 0% FEE)</div>
+            <div class="ticker-item"><span class="ticker-dot"></span> INSTANT NO-DELAY CRYPTO CASHOUTS</div>
+            <!-- Duplicate for seamless loop -->
+            <div class="ticker-item"><span class="ticker-dot"></span> VERIFIED DUEL.COM PARTNER: CODE "ANVILwin"</div>
+            <div class="ticker-item"><span class="ticker-dot"></span> 50% INSTANT RAKEBACK UNLOCKED</div>
+            <div class="ticker-item"><span class="ticker-dot"></span> 0% HOUSE EDGE ORIGINALS</div>
+            <div class="ticker-item"><span class="ticker-dot"></span> 1V1 SKILL ARENA (8-BALL POOL, POKER, TETRIS — 0% FEE)</div>
+            <div class="ticker-item"><span class="ticker-dot"></span> INSTANT NO-DELAY CRYPTO CASHOUTS</div>
+        </div>
+    </div>
+
+    <!-- Floating Navbar -->
+    <div class="nav-holder">
+        <nav class="navbar">
             <a href="#" class="brand">
-                <div class="brand-logo">
+                <div class="brand-emblem">
                     <svg viewBox="0 0 24 24">
-                        <path d="M3 6h18v3c0 1.66-1.34 3-3 3h-2v4h3v3H5v-3h3v-4H6c-1.66 0-3-1.34-3-3V6z"/>
+                        <path d="M2 6h20v3.5c0 1.93-1.57 3.5-3.5 3.5H16v4h4v3H4v-3h4v-4H5.5C3.57 13 2 11.43 2 9.5V6z"/>
                     </svg>
                 </div>
-                <span class="brand-name">ANVIL</span>
-                <span class="verified-pill">✓ Partner</span>
+                <span class="brand-text">ANVIL</span>
+                <span class="partner-tag">VIP HUB</span>
             </a>
-            <div class="nav-links">
-                <a href="#calculator">Rakeback Calculator</a>
-                <a href="#comparison">Why Duel</a>
-                <a href="#community">VIP Discord</a>
-                <a href="#faq">FAQ</a>
-                <a href="https://duel.com/r/ANVILwin" target="_blank" rel="noopener" class="nav-cta">Play Duel.com →</a>
+            <div class="nav-menu">
+                <a href="#advantages">Advantages</a>
+                <a href="#matrix">Comparison</a>
+                <a href="#ecosystem">Community</a>
+                <a href="https://duel.com/r/ANVILwin" target="_blank" rel="noopener" class="nav-btn">Launch Duel.com →</a>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
 
     <div class="container">
         <!-- Hero Section -->
         <section class="hero">
             <div>
-                <div class="status-badge">
-                    <span class="pulse-dot"></span>
-                    OFFICIAL DUEL.COM AFFILIATE HUB • 2026
+                <div class="eyebrow">
+                    <span class="eyebrow-badge">NEW</span>
+                    DIRECT VIP ACCESS • ZERO WAGER LOCKS
                 </div>
-                <h1>STOP GETTING 5% BACK.<br>UNLOCK <span>50% INSTANT RAKEBACK.</span></h1>
-                <p class="hero-desc">
-                    Use official code <strong>ANVILwin</strong> on Duel.com to activate permanent 50% instant rakeback with zero wagering requirements, 0% house edge originals, and 1v1 PvP crypto lobbies.
+                <h1 class="hero-title">
+                    FORGED FOR<br>
+                    <span class="accent">50% INSTANT</span><br>
+                    RAKEBACK.
+                </h1>
+                <p class="hero-sub">
+                    Stop settling for 5% calendar crumbs on outdated casinos. Activate code <strong>ANVILwin</strong> on Duel.com for instant 50% rakeback on every spin, 0% edge originals, and 1v1 PvP crypto lobbies.
                 </p>
 
-                <div class="promo-bar">
-                    <div class="promo-info">
-                        <span class="promo-label">Official Referral Code</span>
-                        <span class="promo-code-text" id="promoCode">ANVILwin</span>
+                <!-- Command Vault Bar -->
+                <div class="vault-bar">
+                    <div class="vault-meta">
+                        <span class="vault-label">Partner Referral Code</span>
+                        <span class="vault-code" id="codeText">ANVILwin</span>
                     </div>
-                    <div class="promo-actions">
-                        <button class="btn-copy" onclick="copyPromo()" id="copyBtn">COPY CODE</button>
+                    <div class="vault-actions">
+                        <button class="btn-copy-code" onclick="copyCode()" id="copyBtn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                                <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            <span id="copyBtnText">COPY CODE</span>
+                        </button>
                     </div>
                 </div>
 
-                <a href="https://duel.com/r/ANVILwin" target="_blank" rel="noopener" class="btn-main">
-                    Claim 50% Instant Rakeback Now →
+                <!-- Shimmer Claim Button -->
+                <a href="https://duel.com/r/ANVILwin" target="_blank" rel="noopener" class="btn-primary-claim">
+                    <span>Unlock 50% Instant Rakeback</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
                 </a>
 
-                <div class="trust-row">
-                    <div class="trust-item"><span>✓</span> No Rollover Locks</div>
-                    <div class="trust-item"><span>✓</span> Instant Crypto Withdrawals</div>
-                    <div class="trust-item"><span>✓</span> Provably Fair</div>
+                <div class="hero-metrics">
+                    <div class="metric-item">
+                        <span class="metric-val">50.0%</span>
+                        <span class="metric-lbl">Instant Rakeback</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-val">0.00%</span>
+                        <span class="metric-lbl">Originals Edge</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-val">&lt; 30s</span>
+                        <span class="metric-lbl">Crypto Payouts</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Interactive Rakeback Calculator -->
-            <div class="calc-card" id="calculator">
-                <div class="calc-header">
-                    <span class="calc-title">💰 Rakeback Calculator</span>
-                    <span class="calc-tag">Code: ANVILwin</span>
+            <!-- Interactive VIP Terminal -->
+            <div class="spotlight-card">
+                <div class="terminal-top">
+                    <div class="terminal-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00ff66" stroke-width="2.2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                        <span>Rakeback Yield Terminal</span>
+                    </div>
+                    <span class="live-indicator">● CODE: ANVILwin</span>
                 </div>
 
-                <div class="slider-group">
-                    <div class="slider-label">
-                        <span>Your Monthly Wager Volume</span>
-                        <span class="slider-val" id="wagerDisplay">$10,000</span>
-                    </div>
-                    <input type="range" id="wagerSlider" min="1000" max="100000" step="1000" value="10000" oninput="updateCalc()">
+                <div class="preset-row">
+                    <button class="preset-btn" onclick="setWager(5000, this)">$5K</button>
+                    <button class="preset-btn active" onclick="setWager(25000, this)">$25K</button>
+                    <button class="preset-btn" onclick="setWager(100000, this)">$100K</button>
+                    <button class="preset-btn" onclick="setWager(500000, this)">$500K</button>
                 </div>
 
-                <div class="calc-results">
-                    <div class="res-box">
-                        <div class="res-name">Stake / Roobet (~5%)</div>
-                        <div class="res-amount" id="oldReward">$15</div>
+                <div class="wager-display-box">
+                    <span class="wager-label">Monthly Wager Volume</span>
+                    <span class="wager-number" id="wagerAmount">$25,000</span>
+                </div>
+
+                <input type="range" id="wagerRange" min="1000" max="500000" step="1000" value="25000" oninput="calcTerminal(this.value)">
+
+                <div class="comparison-bars">
+                    <div class="bar-group">
+                        <div class="bar-header">
+                            <span class="bar-name">Stake / Roobet (~5% Base Rakeback)</span>
+                            <span class="bar-val" id="stakeVal">$38</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill-old"></div>
+                        </div>
                     </div>
-                    <div class="res-box highlight">
-                        <div class="res-name">Duel.com (50% Instant)</div>
-                        <div class="res-amount" id="duelReward">$150</div>
+
+                    <div class="bar-group duel-highlight">
+                        <div class="bar-header">
+                            <span class="bar-name">Duel.com + Code "ANVILwin" (50% Instant)</span>
+                            <span class="bar-val" id="duelVal">$375</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill-duel"></div>
+                        </div>
                     </div>
                 </div>
 
-                <p class="calc-note">
-                    Calculated on standard 3% slot house edge. Paid instantly in crypto after every spin—zero calendar locks.
-                </p>
+                <div class="terminal-footer">
+                    <span>Net Extra Cash Back in Your Pocket:</span>
+                    <span class="extra-gain" id="netGain">+$337 / mo</span>
+                </div>
             </div>
         </section>
 
-        <!-- How It Works (3 Steps) -->
-        <section class="section">
-            <div class="section-header">
-                <h2>Activate VIP Rewards in 60 Seconds</h2>
-                <p>No complicated VIP host applications or locked reload calendars.</p>
+        <!-- Bento Grid Advantages -->
+        <section class="section" id="advantages">
+            <div class="section-head">
+                <div>
+                    <span class="bento-tag">// ENGINEERED FOR PLAYERS</span>
+                    <h2>The Unfair Advantage</h2>
+                </div>
+                <p>Built for crypto grinders and slot hunters tired of locked VIP calendars and hidden wagering traps.</p>
             </div>
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">01</div>
-                    <h3>Register on Duel.com</h3>
-                    <p>Click the registration button above or enter referral code <strong>ANVILwin</strong> when creating your account.</p>
+
+            <div class="bento-grid">
+                <div class="spotlight-card bento-span-7">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                            <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                            <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                        </svg>
+                    </div>
+                    <span class="bento-tag">SKILL-BASED PVP</span>
+                    <h3>Duel Arena: Hustle Real Players 1v1</h3>
+                    <p>Don't just play against the house. Enter the Duel Arena to challenge strangers or viewers 1-on-1 for real crypto with literally 0% platform fee.</p>
+                    <div class="arena-pills">
+                        <div class="arena-pill">8-Ball Pool <span>0% FEE</span></div>
+                        <div class="arena-pill">Heads-Up Poker <span>0% FEE</span></div>
+                        <div class="arena-pill">Tetris Duel <span>0% FEE</span></div>
+                        <div class="arena-pill">Type Racer <span>0% FEE</span></div>
+                    </div>
                 </div>
-                <div class="step-card">
-                    <div class="step-number">02</div>
-                    <h3>Wager on Slots or Arena</h3>
-                    <p>Play Pragmatic & Hacksaw slots, 0% edge Originals, or battle real players 1v1 in 8-Ball Pool & Poker.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">03</div>
-                    <h3>Claim Instant Cash</h3>
-                    <p>50% of the house edge is credited straight to your Rewards tab immediately. Cash out to your wallet anytime.</p>
+
+                <div class="spotlight-card bento-span-5">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                        </svg>
+                    </div>
+                    <span class="bento-tag">ZERO ROLLOVER</span>
+                    <h3>100% Liquid Cash</h3>
+                    <p>Every spin credits 50% of the house edge directly to your Rewards vault. Claim it in one click and withdraw straight to USDT, SOL, BTC, or ETH.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Comparison Table -->
-        <section class="section" id="comparison">
-            <div class="section-header">
-                <h2>Why High-Rollers Are Switching to Duel</h2>
-                <p>See how Duel.com stacks up against traditional crypto casinos in 2026.</p>
+        <!-- Comparison Matrix -->
+        <section class="section" id="matrix">
+            <div class="section-head">
+                <div>
+                    <span class="bento-tag">// HEAD-TO-HEAD BREAKDOWN</span>
+                    <h2>Why Streamers & Whales Switched</h2>
+                </div>
             </div>
-            <div class="table-wrap">
+
+            <div class="spotlight-card matrix-card">
                 <table>
                     <thead>
                         <tr>
-                            <th>Feature</th>
-                            <th class="col-duel">Duel.com (Code: ANVILwin)</th>
-                            <th>Stake / Roobet</th>
+                            <th>Platform Metric</th>
+                            <th class="duel-col">Duel.com (Code: ANVILwin)</th>
+                            <th>Legacy Crypto Casinos</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Instant Rakeback</td>
-                            <td class="col-duel">50% Instant (From Day 1)</td>
-                            <td>5% – 10% (Locked behind VIP tiers)</td>
+                            <td>Instant Rakeback Rate</td>
+                            <td class="duel-col">50% Instant From Spin #1</td>
+                            <td>5% (Locked behind VIP levels)</td>
                         </tr>
                         <tr>
-                            <td>Original Games House Edge</td>
-                            <td class="col-duel">0% House Edge Mode</td>
-                            <td>1% – 2% Standard Edge</td>
+                            <td>Originals House Edge</td>
+                            <td class="duel-col">0.00% House Edge Mode</td>
+                            <td>1.00% – 2.00% Standard Edge</td>
                         </tr>
                         <tr>
-                            <td>1v1 Skill Games (Pool, Poker, Tetris)</td>
-                            <td class="col-duel">✓ Duel Arena (0% Fee)</td>
-                            <td>✕ Not Available</td>
+                            <td>1v1 Skill Lobbies (Pool / Poker)</td>
+                            <td class="duel-col">Included (0% Rake)</td>
+                            <td>Not Available</td>
                         </tr>
                         <tr>
-                            <td>Bonus Wagering Requirements</td>
-                            <td class="col-duel">Zero Wager (100% Liquid Cash)</td>
-                            <td>Weekly/Monthly Calendar Locks</td>
+                            <td>Bonus Payout Structure</td>
+                            <td class="duel-col">100% Instant Withdrawals</td>
+                            <td>Split into Weekly Calendar Drops</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </section>
 
-        <!-- Community & Content -->
-        <section class="section" id="community">
-            <div class="section-header">
-                <h2>Join the ANVIL Community</h2>
-                <p>Watch live challenges, join 1v1 lobbies, and claim weekly affiliate crypto drops.</p>
+        <!-- Community Ecosystem -->
+        <section class="section" id="ecosystem">
+            <div class="section-head">
+                <div>
+                    <span class="bento-tag">// THE ANVIL NETWORK</span>
+                    <h2>Join the Inner Circle</h2>
+                </div>
+                <p>Verify your Duel account under code ANVILwin to unlock exclusive Discord giveaways and live 1v1 stream lobbies.</p>
             </div>
-            <div class="community-grid">
-                <a href="#" id="discordLink" target="_blank" rel="noopener" class="social-card">
+
+            <div class="bento-grid">
+                <a href="#" id="discordLink" target="_blank" rel="noopener" class="spotlight-card bento-span-4 social-card">
                     <div>
-                        <div class="social-top">
-                            <span class="social-badge">DISCORD SERVER</span>
+                        <div class="social-header">
+                            <div class="icon-box" style="margin-bottom:0;">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                            </div>
+                            <span class="platform-pill">DISCORD VIP</span>
                         </div>
-                        <h3>🎁 ANVIL VIP Club</h3>
-                        <p>Verify your Duel account under code ANVILwin to join weekly crypto giveaways and 1v1 tournaments.</p>
+                        <h3>VIP Crypto Drops</h3>
+                        <p>Weekly crypto tips and exclusive balance raffles for active code ANVILwin players.</p>
                     </div>
-                    <span class="social-link-text">Join Discord Server →</span>
+                    <span class="cta-arrow">Enter Discord Server →</span>
                 </a>
 
-                <a href="#" id="youtubeLink" target="_blank" rel="noopener" class="social-card">
+                <a href="#" id="youtubeLink" target="_blank" rel="noopener" class="spotlight-card bento-span-4 social-card">
                     <div>
-                        <div class="social-top">
-                            <span class="social-badge">YOUTUBE</span>
+                        <div class="social-header">
+                            <div class="icon-box" style="margin-bottom:0;">
+                                <svg viewBox="0 0 24 24">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg>
+                            </div>
+                            <span class="platform-pill">YOUTUBE</span>
                         </div>
-                        <h3>▶️ Wheel & Slot Challenges</h3>
-                        <p>High-energy bonus hunts, Wheel of Fortune challenges, and honest crypto casino breakdowns.</p>
+                        <h3>Wheel Challenges</h3>
+                        <p>High-volatility slot challenges, bonus openings, and Duel Arena showdowns.</p>
                     </div>
-                    <span class="social-link-text">Watch on YouTube →</span>
+                    <span class="cta-arrow">Watch Channel →</span>
                 </a>
 
-                <a href="#" id="kickLink" target="_blank" rel="noopener" class="social-card">
+                <a href="#" id="kickLink" target="_blank" rel="noopener" class="spotlight-card bento-span-4 social-card">
                     <div>
-                        <div class="social-top">
-                            <span class="social-badge">LIVE STREAM</span>
+                        <div class="social-header">
+                            <div class="icon-box" style="margin-bottom:0;">
+                                <svg viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </div>
+                            <span class="platform-pill">KICK LIVE</span>
                         </div>
-                        <h3>🟢 Live on Kick</h3>
-                        <p>Challenge ANVIL live 1v1 in 8-Ball Pool or Heads-Up Poker for crypto on stream.</p>
+                        <h3>1v1 Me Live on Stream</h3>
+                        <p>Jump into live Duel Arena lobbies on stream and play ANVIL 1v1 for crypto.</p>
                     </div>
-                    <span class="social-link-text">Follow on Kick →</span>
+                    <span class="cta-arrow">Follow Kick Stream →</span>
                 </a>
             </div>
         </section>
 
-        <!-- FAQ Section -->
-        <section class="section" id="faq">
-            <div class="section-header">
-                <h2>Frequently Asked Questions</h2>
-                <p>Everything you need to know about the ANVILwin code and Duel rewards.</p>
-            </div>
-            <div class="faq-list">
-                <details open>
-                    <summary>How do I activate the 50% Instant Rakeback?</summary>
-                    <p>Simply sign up on Duel.com using our direct partner link or enter the code <strong>ANVILwin</strong> in the referral box. Your 50% rakeback is activated automatically with no minimum deposit.</p>
-                </details>
-                <details>
-                    <summary>Are there any wagering requirements on the rakeback?</summary>
-                    <p>None. Every cent of rakeback you claim goes straight to your real crypto balance and can be withdrawn immediately.</p>
-                </details>
-                <details>
-                    <summary>What cryptocurrencies are supported?</summary>
-                    <p>Duel supports instant deposits and withdrawals via USDT, USDC, BTC, ETH, SOL, LTC, and more with zero withdrawal delays.</p>
-                </details>
-            </div>
-        </section>
+        <footer>
+            <div><strong>ANVILHUB.TOP</strong> — Official Partner Portal for Duel.com (Referral Code: ANVILwin)</div>
+            <div>18+ Only. Play Responsibly. Never wager funds you cannot afford to lose.</div>
+        </footer>
     </div>
-
-    <footer>
-        <div class="container">
-            <p><strong>ANVILHUB.TOP</strong> — Official Affiliate Partner of Duel.com (Code: ANVILwin).</p>
-            <p style="margin-top: 8px; opacity: 0.7;">18+ Only. Gamble Responsibly. Never gamble with money you cannot afford to lose. Ensure crypto gaming is permitted in your local jurisdiction before playing.</p>
-        </div>
-    </footer>
 
     <script>
         // ==========================================
-        // НАСТРОЙКИ ССЫЛОК СОЦСЕТЕЙ:
+        // ТВОИ ССЫЛКИ НА СОЦСЕТИ:
         // ==========================================
-        const SOCIALS = {
+        const LINKS = {
             discord: "https://discord.gg/YOUR_INVITE",
             youtube: "https://youtube.com/@YOUR_HANDLE",
             kick: "https://kick.com/YOUR_CHANNEL"
         };
 
-        document.getElementById('discordLink').href = SOCIALS.discord;
-        document.getElementById('youtubeLink').href = SOCIALS.youtube;
-        document.getElementById('kickLink').href = SOCIALS.kick;
+        document.getElementById('discordLink').href = LINKS.discord;
+        document.getElementById('youtubeLink').href = LINKS.youtube;
+        document.getElementById('kickLink').href = LINKS.kick;
 
-        // Копирование промокода
-        function copyPromo() {
+        // 1. Эффект динамической подсветки карточек за курсором мыши
+        document.querySelectorAll('.spotlight-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+                card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+            });
+        });
+
+        // 2. Копирование промокода ANVILwin
+        function copyCode() {
             navigator.clipboard.writeText("ANVILwin");
+            const btnText = document.getElementById('copyBtnText');
             const btn = document.getElementById('copyBtn');
-            btn.innerText = "COPIED! ✓";
-            btn.style.background = "#00e701";
-            btn.style.color = "#05070a";
+            btnText.innerText = "COPIED TO CLIPBOARD";
+            btn.style.borderColor = "#00ff66";
+            btn.style.color = "#00ff66";
             setTimeout(() => {
-                btn.innerText = "COPY CODE";
-                btn.style.background = "rgba(255, 255, 255, 0.08)";
-                btn.style.color = "#f8fafc";
-            }, 2000);
+                btnText.innerText = "COPY CODE";
+                btn.style.borderColor = "rgba(255, 255, 255, 0.12)";
+                btn.style.color = "#ffffff";
+            }, 2200);
         }
 
-        // Логика калькулятора рейкбека
-        function updateCalc() {
-            const wager = parseInt(document.getElementById('wagerSlider').value);
-            document.getElementById('wagerDisplay').innerText = "$" + wager.toLocaleString();
-            
-            // Расчет на базе среднего House Edge слотов 3%
-            const houseEdge = wager * 0.03;
-            const stakeRakeback = Math.round(houseEdge * 0.05); // 5%
-            const duelRakeback = Math.round(houseEdge * 0.50);  // 50%
+        // 3. Логика VIP-терминала рейкбека
+        function setWager(val, btnEl) {
+            document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+            btnEl.classList.add('active');
+            document.getElementById('wagerRange').value = val;
+            calcTerminal(val);
+        }
 
-            document.getElementById('oldReward').innerText = "$" + stakeRakeback.toLocaleString();
-            document.getElementById('duelReward').innerText = "$" + duelRakeback.toLocaleString();
+        function calcTerminal(val) {
+            const wager = parseInt(val);
+            document.getElementById('wagerAmount').innerText = "$" + wager.toLocaleString();
+            
+            const houseEdge = wager * 0.03; // 3% average slot edge
+            const stakeReturn = Math.round(houseEdge * 0.05);
+            const duelReturn = Math.round(houseEdge * 0.50);
+            const diff = duelReturn - stakeReturn;
+
+            document.getElementById('stakeVal').innerText = "$" + stakeReturn.toLocaleString();
+            document.getElementById('duelVal').innerText = "$" + duelReturn.toLocaleString();
+            document.getElementById('netGain').innerText = "+$" + diff.toLocaleString() + " / mo";
         }
     </script>
 </body>
