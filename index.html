@@ -883,16 +883,18 @@
                 <div class="brand-emblem">
      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
-        <linearGradient id="crestGold" x1="4" y1="2" x2="28" y2="30" gradientUnits="userSpaceOnUse">
+        <linearGradient id="bladeGold" x1="0" y1="4" x2="32" y2="28" gradientUnits="userSpaceOnUse">
             <stop offset="0%" stop-color="#FAE1C3"/>
-            <stop offset="55%" stop-color="#E5B383"/>
+            <stop offset="50%" stop-color="#E5B383"/>
             <stop offset="100%" stop-color="#9C6738"/>
         </linearGradient>
     </defs>
-    <!-- Внешний граненый щит -->
-    <path d="M16 2L28 8.5V23.5L16 30L4 23.5V8.5L16 2Z" stroke="url(#crestGold)" stroke-width="2" fill="rgba(229, 179, 131, 0.08)"/>
-    <!-- Внутренняя геометрия наковальни -->
-    <path d="M7.5 11H24.5L21.5 15.5H18V19.5L22 22.5H10L14 19.5V15.5H10.5L7.5 11Z" fill="url(#crestGold)"/>
+    <!-- Верхнее рассеченное лезвие (рог наковальни) -->
+    <path d="M2 9L12 6H29L24 13H10L2 9Z" fill="url(#bladeGold)"/>
+    <!-- Среднее ядро -->
+    <path d="M12 15H22L19 20H11L12 15Z" fill="#FAE1C3"/>
+    <!-- Массивная нижняя платформа -->
+    <path d="M7 22H25L28 26H4L7 22Z" fill="url(#bladeGold)"/>
 </svg>
                 </div>
                 <span class="brand-text">ANVIL</span>
