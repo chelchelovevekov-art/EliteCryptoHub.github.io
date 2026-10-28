@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANVIL — Forged VIP Partner & Rakeback Hub</title>
+    <!-- Favicon (SVG) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='32' height='32' rx='8' fill='%230d0b0a'/%3E%3Cpath d='M2 9L12 6H29L24 13H10L2 9Z' fill='%23E5B383'/%3E%3Cpath d='M12 15H22L19 20H11L12 15Z' fill='%23FAE1C3'/%3E%3Cpath d='M7 22H25L28 26H4L7 22Z' fill='%23CC935E'/%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Deep Smelted Obsidian & Charcoal Base */
             --bg-void: #070606;
             --bg-ingot: #0f0d0c;
             --glass-bg: rgba(18, 16, 15, 0.78);
             --glass-border: rgba(232, 184, 136, 0.12);
             --glass-specular: rgba(255, 238, 220, 0.22);
             
-            /* Precious Rose-Bronze & Champagne Gold Alloy (from reference) */
             --metal-light: #fae1c3;
             --metal-main: #e5b383;
             --metal-mid: #cc935e;
@@ -25,7 +25,6 @@
             --metal-soft: rgba(229, 179, 131, 0.09);
             --metal-border: rgba(229, 179, 131, 0.36);
 
-            /* Platinum & Tungsten Typography */
             --text-main: #f7f4f0;
             --text-muted: #9e958d;
             --text-dim: #635b54;
@@ -47,7 +46,6 @@
             position: relative;
         }
 
-        /* Ambient Forge Glow & Brushed Metal Texture */
         .ambient-bg {
             position: fixed;
             inset: 0;
@@ -72,7 +70,6 @@
             pointer-events: none;
         }
 
-        /* Live Top Ticker */
         .ticker-wrap {
             width: 100%;
             background: linear-gradient(90deg, rgba(229, 179, 131, 0.05), rgba(229, 179, 131, 0.12), rgba(229, 179, 131, 0.05));
@@ -120,7 +117,6 @@
             padding: 0 24px;
         }
 
-        /* Floating Forged Alloy Navbar */
         .nav-holder {
             position: sticky;
             top: 18px;
@@ -165,9 +161,8 @@
         }
 
         .brand-emblem svg {
-            width: 22px;
-            height: 22px;
-            fill: var(--metal-main);
+            width: 24px;
+            height: 24px;
             filter: drop-shadow(0 0 6px var(--metal-glow));
         }
 
@@ -186,7 +181,6 @@
             gap: 14px;
         }
 
-        /* Social Icon Buttons in Navbar */
         .nav-socials {
             display: flex;
             align-items: center;
@@ -248,7 +242,6 @@
             box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 0 35px var(--metal-glow);
         }
 
-        /* Hero Section */
         .hero {
             padding: 72px 0 56px;
             display: grid;
@@ -315,7 +308,6 @@
             font-weight: 700;
         }
 
-        /* Forged Ingot Vault Bar (Promo Code Bar) */
         .vault-bar {
             background: linear-gradient(180deg, rgba(28, 24, 21, 0.92) 0%, rgba(14, 12, 11, 0.98) 100%);
             border: 1px solid var(--metal-border);
@@ -377,7 +369,6 @@
             color: var(--metal-light);
         }
 
-        /* Precious Metal Shimmer Button */
         .btn-primary-claim {
             position: relative;
             overflow: hidden;
@@ -448,7 +439,6 @@
             font-weight: 500;
         }
 
-        /* Forged Brushed-Metal Cards */
         .spotlight-card {
             background: linear-gradient(165deg, rgba(24, 21, 19, 0.85) 0%, rgba(12, 10, 9, 0.92) 100%);
             backdrop-filter: blur(24px);
@@ -511,33 +501,6 @@
             letter-spacing: 0.5px;
         }
 
-        .preset-row {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-
-        .preset-btn {
-            background: rgba(255, 255, 255, 0.025);
-            border: 1px solid var(--glass-border);
-            color: var(--text-muted);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            font-weight: 700;
-            padding: 10px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .preset-btn:hover, .preset-btn.active {
-            background: linear-gradient(180deg, rgba(229, 179, 131, 0.2) 0%, rgba(229, 179, 131, 0.08) 100%);
-            border-color: var(--metal-main);
-            color: var(--metal-light);
-            box-shadow: inset 0 1px 0 rgba(250, 225, 195, 0.25), 0 0 15px var(--metal-soft);
-        }
-
         .wager-display-box {
             display: flex;
             justify-content: space-between;
@@ -558,7 +521,6 @@
             color: var(--text-main);
         }
 
-        /* Range Slider with Dynamic Molten Bronze Fill Trail */
         input[type="range"] {
             width: 100%;
             -webkit-appearance: none;
@@ -685,7 +647,6 @@
             font-size: 14px;
         }
 
-        /* Bento Grid Sections */
         .section {
             padding: 64px 0;
         }
@@ -717,27 +678,6 @@
 
         .bento-span-7 { grid-column: span 7; }
         .bento-span-5 { grid-column: span 5; }
-
-        .icon-box {
-            width: 46px;
-            height: 46px;
-            border-radius: 13px;
-            background: linear-gradient(145deg, rgba(229, 179, 131, 0.16), rgba(229, 179, 131, 0.04));
-            border: 1px solid var(--metal-border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            box-shadow: inset 0 1px 0 rgba(250, 225, 195, 0.2), 0 0 20px var(--metal-soft);
-        }
-
-        .icon-box svg {
-            width: 22px;
-            height: 22px;
-            stroke: var(--metal-light);
-            fill: none;
-            stroke-width: 2;
-        }
 
         .bento-tag {
             font-family: 'JetBrains Mono', monospace;
@@ -787,7 +727,6 @@
             font-size: 11px;
         }
 
-        /* Luxury Comparison Matrix */
         .matrix-card {
             padding: 0;
             overflow: hidden;
@@ -830,7 +769,6 @@
             border-right: 1px solid var(--metal-border);
         }
 
-        /* Footer */
         footer {
             margin-top: 64px;
             border-top: 1px solid var(--glass-border);
@@ -844,14 +782,58 @@
             gap: 16px;
         }
 
+        /* Адаптация под планшеты */
         @media (max-width: 980px) {
-            .hero { grid-template-columns: 1fr; padding: 40px 0; }
+            .hero { grid-template-columns: 1fr; padding: 36px 0; gap: 32px; }
             .hero-title { font-size: 42px; }
             .bento-span-7, .bento-span-5 { grid-column: span 12; }
-            .navbar { padding: 10px 16px; }
-            .nav-btn { padding: 10px 16px; font-size: 13px; }
             .section-head { flex-direction: column; align-items: flex-start; gap: 10px; }
+        }
+
+        /* Идеальная адаптация под смартфоны */
+        @media (max-width: 600px) {
+            .container { padding: 0 16px; }
+            .nav-holder { padding: 0 12px; top: 10px; margin-top: 10px; }
+            .navbar { padding: 10px 12px; border-radius: 14px; }
+            .brand { gap: 8px; }
+            .brand-emblem { width: 34px; height: 34px; border-radius: 9px; }
+            .brand-text { font-size: 17px; letter-spacing: 1.5px; }
+            .nav-actions { gap: 8px; }
+            .nav-socials { gap: 6px; margin-right: 0; }
+            .social-icon-btn { width: 34px; height: 34px; border-radius: 9px; }
+            .social-icon-btn svg { width: 16px; height: 16px; }
+            .nav-btn { padding: 8px 12px; font-size: 12px; border-radius: 9px; }
+
+            .hero { padding: 24px 0 36px; }
+            .eyebrow { font-size: 10px; padding: 5px 12px; margin-bottom: 16px; }
+            .hero-title { font-size: 34px; letter-spacing: -1px; margin-bottom: 16px; }
+            .hero-sub { font-size: 15px; margin-bottom: 24px; }
+
+            .vault-bar { flex-direction: column; align-items: stretch; gap: 12px; padding: 16px; }
+            .vault-meta { align-items: center; text-align: center; }
+            .btn-copy-code { width: 100%; justify-content: center; padding: 14px; }
+            .btn-primary-claim { font-size: 14px; padding: 18px 20px; }
+
+            .hero-metrics { gap: 16px; justify-content: space-between; }
+            .metric-val { font-size: 17px; }
+            .metric-lbl { font-size: 11px; }
+
+            .spotlight-card { padding: 22px 18px; border-radius: 20px; }
+            .terminal-top { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .wager-number { font-size: 22px; }
+            .bar-header { flex-direction: column; align-items: flex-start; gap: 4px; }
+            .bar-val { font-size: 19px; }
+
+            .section { padding: 40px 0; }
+            .section-head h2 { font-size: 28px; }
+            .spotlight-card h3 { font-size: 20px; }
+
+            /* Горизонтальный скролл таблицы для мобилок */
+            .matrix-card { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            table { min-width: 520px; }
             th, td { padding: 14px 16px; font-size: 13px; }
+
+            footer { flex-direction: column; text-align: center; padding: 28px 0; }
         }
     </style>
 </head>
@@ -881,21 +863,19 @@
         <nav class="navbar">
             <a href="#" class="brand">
                 <div class="brand-emblem">
-     <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-        <linearGradient id="bladeGold" x1="0" y1="4" x2="32" y2="28" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#FAE1C3"/>
-            <stop offset="50%" stop-color="#E5B383"/>
-            <stop offset="100%" stop-color="#9C6738"/>
-        </linearGradient>
-    </defs>
-    <!-- Верхнее рассеченное лезвие (рог наковальни) -->
-    <path d="M2 9L12 6H29L24 13H10L2 9Z" fill="url(#bladeGold)"/>
-    <!-- Среднее ядро -->
-    <path d="M12 15H22L19 20H11L12 15Z" fill="#FAE1C3"/>
-    <!-- Массивная нижняя платформа -->
-    <path d="M7 22H25L28 26H4L7 22Z" fill="url(#bladeGold)"/>
-</svg>
+                    <!-- Логотип №3 (Razor Blade Anvil) -->
+                    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="bladeGold" x1="0" y1="4" x2="32" y2="28" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#FAE1C3"/>
+                                <stop offset="50%" stop-color="#E5B383"/>
+                                <stop offset="100%" stop-color="#9C6738"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M2 9L12 6H29L24 13H10L2 9Z" fill="url(#bladeGold)"/>
+                        <path d="M12 15H22L19 20H11L12 15Z" fill="#FAE1C3"/>
+                        <path d="M7 22H25L28 26H4L7 22Z" fill="url(#bladeGold)"/>
+                    </svg>
                 </div>
                 <span class="brand-text">ANVIL</span>
             </a>
@@ -994,8 +974,6 @@
                     <span class="live-indicator">CODE: ANVILwin</span>
                 </div>
 
-                
-
                 <div class="wager-display-box">
                     <span class="wager-label">Monthly Wager Volume</span>
                     <span class="wager-number" id="wagerAmount">$25,000</span>
@@ -1032,7 +1010,7 @@
             </div>
         </section>
 
-        <!-- Bento Grid Advantages -->
+        <!-- Bento Grid Advantages (Без смайликов) -->
         <section class="section" id="advantages">
             <div class="section-head">
                 <div>
@@ -1044,7 +1022,6 @@
 
             <div class="bento-grid">
                 <div class="spotlight-card bento-span-7">
-                    
                     <span class="bento-tag">SKILL-BASED PVP</span>
                     <h3>Duel Arena: Hustle Real Players 1v1</h3>
                     <p>Don't just play against the house. Enter the Duel Arena to challenge strangers or viewers 1-on-1 for real crypto with literally 0% platform fee.</p>
@@ -1057,7 +1034,6 @@
                 </div>
 
                 <div class="spotlight-card bento-span-5">
-                   
                     <span class="bento-tag">ZERO ROLLOVER</span>
                     <h3>100% Liquid Cash</h3>
                     <p>Every spin credits 50% of the house edge directly to your Rewards vault. Claim it in one click and withdraw straight to USDT, SOL, BTC, or ETH.</p>
@@ -1116,9 +1092,6 @@
     </div>
 
     <script>
-        // ==========================================
-        // ВСТАВЬ СВОИ ССЫЛКИ НА СОЦСЕТИ ЗДЕСЬ:
-        // ==========================================
         const LINKS = {
             youtube: "https://youtube.com/@YOUR_HANDLE",
             kick: "https://kick.com/YOUR_CHANNEL",
@@ -1129,7 +1102,6 @@
         document.getElementById('navKickLink').href = LINKS.kick;
         document.getElementById('navDiscordLink').href = LINKS.discord;
 
-        // Подсветка карточек за курсором мыши
         document.querySelectorAll('.spotlight-card').forEach(card => {
             card.addEventListener('mousemove', e => {
                 const rect = card.getBoundingClientRect();
@@ -1138,7 +1110,6 @@
             });
         });
 
-        // Копирование промокода ANVILwin
         function copyCode() {
             navigator.clipboard.writeText("ANVILwin");
             const btnText = document.getElementById('copyBtnText');
@@ -1153,13 +1124,6 @@
             }, 2200);
         }
 
-        // Обновление бронзово-золотого следа за ползунком и расчетов
-        function setWager(val) {
-            const slider = document.getElementById('wagerRange');
-            slider.value = val;
-            calcTerminal(val);
-        }
-
         function calcTerminal(val) {
             const slider = document.getElementById('wagerRange');
             const wager = parseInt(val);
@@ -1168,14 +1132,6 @@
 
             const pct = ((wager - min) / (max - min)) * 100;
             slider.style.background = `linear-gradient(90deg, var(--metal-dark) 0%, var(--metal-main) ${pct}%, #211d1a ${pct}%, #211d1a 100%)`;
-
-            document.querySelectorAll('.preset-btn').forEach(btn => {
-                if (parseInt(btn.getAttribute('data-val')) === wager) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
 
             document.getElementById('wagerAmount').innerText = "$" + wager.toLocaleString('en-US');
             
